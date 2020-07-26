@@ -1,6 +1,7 @@
 package zeno.util.lang;
 
 import zeno.util.lang.util.CharIterator;
+import zeno.util.tools.Integers;
 
 /**
  * The {@code Strings} class defines basic operations for {@code String} objects.
@@ -11,6 +12,21 @@ import zeno.util.lang.util.CharIterator;
  */
 public final class Strings
 {
+	/**
+	 * Repeats a characters multiple times in a string.
+	 * 
+	 * @param c  a character to repeat
+	 * @param size  a string size
+	 * @return  a repeated string
+	 * 
+	 * 
+	 * @see String
+	 */
+	public static String repeat(char c, int size)
+	{
+		return String.format("%1$" + size + "s", "").replace(' ', c);
+	}
+	
 	/**
 	 * Pads the right side of an object string up to a given size.
 	 * 
@@ -25,7 +41,7 @@ public final class Strings
 	 */
 	public static String padRight(Object o, char c, int size)
 	{
-		return String.format("%1$-" + size + "s", o).replace(' ', c);
+		return o + repeat(c, Integers.max(0, size - o.toString().length()));
 	}
 	
 	/**
@@ -42,9 +58,9 @@ public final class Strings
 	 */
 	public static String padLeft(Object o, char c, int size)
 	{
-		return String.format("%1$" + size + "s", o).replace(' ', c);
+		return repeat(c, Integers.max(0, size - o.toString().length())) + o;
 	}
-
+	
 	/**
 	 * Returns an {@code Iterable} over characters of a string.
 	 * 

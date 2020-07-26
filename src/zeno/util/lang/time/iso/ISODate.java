@@ -7,6 +7,7 @@ import zeno.util.lang.time.iso.date.Month;
 import zeno.util.lang.time.iso.date.WeekDay;
 import zeno.util.lang.time.iso.types.GregorianDate;
 import zeno.util.lang.time.iso.types.JulianDate;
+import zeno.util.lang.util.ISO;
 
 /**
  * The {@code ISODate} class defines a date that uses a historically accurate calendar.
@@ -50,7 +51,7 @@ public class ISODate implements Date
 		 */
 		public ExistenceError(Date d)
 		{
-			super("This date does not exist: " + d + ".");
+			super("The date " + d.toString(ISO.Format.SHORT) + " does not exist.");
 		}
 	}
 	
