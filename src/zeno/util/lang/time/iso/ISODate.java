@@ -14,7 +14,7 @@ import zeno.util.lang.util.ISO;
  * </br> Until 4 October 1852, it makes use of the Julian calendar, and then switches
  * over to 15 October 1852 where it makes use of the Gregorian calendar.
  *
- * @author Zeno
+ * @author Waffles
  * @since 26 Jul 2020
  * @version 1.0
  * 
@@ -56,6 +56,25 @@ public class ISODate implements Date
 	}
 	
 	/**
+	 * Converts a calendar into an {@code ISODate}.
+	 * 
+	 * @param cal  a calendar
+	 * @return  an iso date
+	 * 
+	 * 
+	 * @see Calendar
+	 * @see ISODate
+	 */
+	public static ISODate from(Calendar cal)
+	{
+		int m = cal.get(Calendar.MONTH) + 1;
+		int d = cal.get(Calendar.DAY_OF_MONTH);
+		long y = cal.get(Calendar.YEAR);	
+		
+		return new ISODate(y, m, d);
+	}
+	
+	/**
 	 * Returns the current {@code Date} of today.
 	 * 
 	 * @return  a current date
@@ -63,15 +82,9 @@ public class ISODate implements Date
 	 * 
 	 * @see Date
 	 */
-	public static Date now()
+	public static ISODate now()
 	{
-		Calendar c = Calendar.getInstance();
-		
-		long y = c.get(Calendar.YEAR);
-		int m = c.get(Calendar.MONTH) + 1;
-		int d = c.get(Calendar.DAY_OF_MONTH);
-		
-		return new ISODate(y, m, d);
+		return from(Calendar.getInstance());
 	}
 
 	

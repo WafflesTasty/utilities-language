@@ -18,7 +18,7 @@ import zeno.util.lang.time.Date;
  * <li>{@code %MONTH%}: Displays the full name of the month.</li>
  * </ul> 
  * 
- * @author Zeno
+ * @author Waffles
  * @since 26 Jul 2020
  * @version 1.0
  * 
