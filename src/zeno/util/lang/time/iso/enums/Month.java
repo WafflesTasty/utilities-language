@@ -1,4 +1,4 @@
-package zeno.util.lang.time.iso.date;
+package zeno.util.lang.time.iso.enums;
 
 /**
  * The {@code Month} enum defines all months in an ISO calender year.

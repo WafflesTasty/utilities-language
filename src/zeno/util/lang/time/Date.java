@@ -4,8 +4,8 @@ import waffles.util.tools.primitives.Longs;
 import zeno.util.lang.Format;
 import zeno.util.lang.Formattable;
 import zeno.util.lang.time.format.FMTDate;
-import zeno.util.lang.time.iso.date.Month;
-import zeno.util.lang.time.iso.date.WeekDay;
+import zeno.util.lang.time.iso.enums.Month;
+import zeno.util.lang.time.iso.enums.WeekDay;
 import zeno.util.lang.util.ISO;
 
 /**

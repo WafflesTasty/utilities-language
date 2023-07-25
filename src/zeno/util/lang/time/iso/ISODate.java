@@ -3,10 +3,10 @@ package zeno.util.lang.time.iso;
 import java.util.Calendar;
 
 import zeno.util.lang.time.Date;
-import zeno.util.lang.time.iso.date.Month;
-import zeno.util.lang.time.iso.date.WeekDay;
-import zeno.util.lang.time.iso.types.GregorianDate;
-import zeno.util.lang.time.iso.types.JulianDate;
+import zeno.util.lang.time.iso.calendars.GregorianDate;
+import zeno.util.lang.time.iso.calendars.JulianDate;
+import zeno.util.lang.time.iso.enums.Month;
+import zeno.util.lang.time.iso.enums.WeekDay;
 import zeno.util.lang.util.ISO;
 
 /**

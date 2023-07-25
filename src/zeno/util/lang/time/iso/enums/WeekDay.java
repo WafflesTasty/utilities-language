@@ -1,4 +1,4 @@
-package zeno.util.lang.time.iso.date;
+package zeno.util.lang.time.iso.enums;
 
 /**
  * The {@code WeekDay} enum defines all days in an ISO calendar week.
