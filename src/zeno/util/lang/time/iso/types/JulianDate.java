@@ -1,9 +1,9 @@
 package zeno.util.lang.time.iso.types;
 
+import waffles.util.tools.primitives.Longs;
 import zeno.util.lang.time.Date;
 import zeno.util.lang.time.iso.date.Month;
 import zeno.util.lang.time.iso.date.WeekDay;
-import zeno.util.tools.Longs;
 
 /**
  * The {@code JulianDate} class defines a proleptic Julian calendar.

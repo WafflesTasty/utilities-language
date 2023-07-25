@@ -1,17 +1,17 @@
 package zeno.util.lang.time;
 
-import zeno.util.lang.format.Format;
-import zeno.util.lang.format.Formattable;
-import zeno.util.lang.format.types.FMTDate;
+import waffles.util.tools.primitives.Longs;
+import zeno.util.lang.Format;
+import zeno.util.lang.Formattable;
+import zeno.util.lang.time.format.FMTDate;
 import zeno.util.lang.time.iso.date.Month;
 import zeno.util.lang.time.iso.date.WeekDay;
 import zeno.util.lang.util.ISO;
-import zeno.util.tools.Longs;
 
 /**
  * The {@code Date} interface defines a generic date-like object.
  *
- * @author Zeno
+ * @author Waffles
  * @since 26 Jul 2020
  * @version 1.0
  * 
@@ -24,12 +24,27 @@ public interface Date extends Comparable<Date>, Formattable<Date>
 	/**
 	 * Defines a {@code Format} for a long date string.
 	 */
-	public static FMTDate LONG_DATE = new FMTDate("%WEEKDAY%, %D% %MONTH% %Y%");
+	public static FMTDate LONG_DATE = new FMTDate("§WEEKDAY§, §D§ §MONTH§ §Y§", "§");
 	
 	/**
 	 * Defines a {@code Format} for a short date string.
 	 */
-	public static FMTDate SHORT_DATE = new FMTDate("%dd%-%mm%-%yyyy%");
+	public static FMTDate SHORT_DATE = new FMTDate("§dd§-§mm§-§yyyy§", "§");
+	
+	
+	@Override
+	public default Format<Date> Formatter(String fmt, String delim)
+	{
+		return new FMTDate(fmt, delim);
+	}
+	
+	@Override
+	public default int compareTo(Date d)
+	{
+		if(Year() < d.Year()) return -1;
+		if(d.Year() < Year()) return +1;
+		return (int) Longs.sign(DayOfYear() - d.DayOfYear());
+	}
 	
 	
 	/**
@@ -42,14 +57,14 @@ public interface Date extends Comparable<Date>, Formattable<Date>
 	 * @see String
 	 * @see ISO
 	 */
-	public default String toString(ISO.Format fmt)
+	public default String parse(ISO.Format fmt)
 	{
 		switch(fmt)
 		{
 		case SHORT:
-			return format(SHORT_DATE);
+			return parse(SHORT_DATE);
 		case LONG:
-			return format(LONG_DATE);
+			return parse(LONG_DATE);
 		default:
 			return null;
 		}
@@ -76,22 +91,7 @@ public interface Date extends Comparable<Date>, Formattable<Date>
 	{
 		return compareTo(d) > 0;
 	}
-		
 			
-	@Override
-	public default Format<Date> Formatter(String fmt)
-	{
-		return new FMTDate(fmt);
-	}
-	
-	@Override
-	public default int compareTo(Date d)
-	{
-		if(Year() < d.Year()) return -1;
-		if(d.Year() < Year()) return +1;
-		return (int) Longs.sign(DayOfYear() - d.DayOfYear());
-	}
-	
 	
 	/**
 	 * Returns the month in the {@code Date}.

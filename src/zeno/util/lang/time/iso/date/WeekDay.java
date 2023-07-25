@@ -3,7 +3,7 @@ package zeno.util.lang.time.iso.date;
 /**
  * The {@code WeekDay} enum defines all days in an ISO calendar week.
  *
- * @author Zeno
+ * @author Waffles
  * @since 25 Jul 2020
  * @version 1.0
  */

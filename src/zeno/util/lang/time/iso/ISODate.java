@@ -13,6 +13,7 @@ import zeno.util.lang.util.ISO;
  * The {@code ISODate} class defines a date that uses a historically accurate calendar.
  * </br> Until 4 October 1852, it makes use of the Julian calendar, and then switches
  * over to 15 October 1852 where it makes use of the Gregorian calendar.
+ * This standard is given by {@code ISO-8601}.
  *
  * @author Waffles
  * @since 26 Jul 2020
@@ -27,9 +28,9 @@ public class ISODate implements Date
 	private static final JulianDate LAST_JULIAN = new JulianDate(1582, Month.OCTOBER, 4);
 	
 	/**
-	 * The {@code ExistenceError} class defines an error thrown on creating a non-existent {@code Date}.
+	 * The {@code ExistenceError} is thrown when creating a non-existent {@code ISODate}.
 	 *
-	 * @author Zeno
+	 * @author Waffles
 	 * @since 26 Jul 2020
 	 * @version 1.0
 	 * 
@@ -51,7 +52,7 @@ public class ISODate implements Date
 		 */
 		public ExistenceError(Date d)
 		{
-			super("The date " + d.toString(ISO.Format.SHORT) + " does not exist.");
+			super("The date " + d.parse(ISO.Format.SHORT) + " does not exist in the ISO calendar.");
 		}
 	}
 	
@@ -63,7 +64,6 @@ public class ISODate implements Date
 	 * 
 	 * 
 	 * @see Calendar
-	 * @see ISODate
 	 */
 	public static ISODate from(Calendar cal)
 	{
@@ -75,12 +75,9 @@ public class ISODate implements Date
 	}
 	
 	/**
-	 * Returns the current {@code Date} of today.
+	 * Returns the current {@code ISODate}.
 	 * 
 	 * @return  a current date
-	 * 
-	 * 
-	 * @see Date
 	 */
 	public static ISODate now()
 	{
@@ -110,7 +107,7 @@ public class ISODate implements Date
 	}
 	
 	/**
-	 * Creates a new {@code JulianDate}.
+	 * Creates a new {@code ISODate}.
 	 * 
 	 * @param y  an iso year
 	 * @param m  an iso month
@@ -122,7 +119,7 @@ public class ISODate implements Date
 	}
 	
 	/**
-	 * Creates a new {@code JulianDate}.
+	 * Creates a new {@code ISODate}.
 	 * 
 	 * @param y  an iso year
 	 * @param m  an iso month

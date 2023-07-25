@@ -3,16 +3,16 @@ package zeno.util.lang.util;
 /**
  * The {@code ISO} class defines utilities for the ISO standard.
  *
- * @author Zeno
+ * @author Waffles
  * @since 26 Jul 2020
  * @version 1.0
  */
 public final class ISO
 {
 	/**
-	 * The {@code Format} enum defines ISO formats.
+	 * The {@code Format} enum defines ISO Date/Time formats.
 	 *
-	 * @author Zeno
+	 * @author Waffles
 	 * @since 26 Jul 2020
 	 * @version 1.0
 	 */

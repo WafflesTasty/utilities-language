@@ -1,11 +1,11 @@
-package zeno.util.lang.util;
+package zeno.util.lang.util.iterators;
 
 import java.util.Iterator;
 
 /**
  * The {@code CharIterator} class iterates over the characters in a {@code String}.
  *
- * @author Zeno
+ * @author Waffles
  * @since 24 Jul 2020
  * @version 1.0
  * 

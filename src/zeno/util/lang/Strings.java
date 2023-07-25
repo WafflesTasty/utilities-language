@@ -1,19 +1,19 @@
 package zeno.util.lang;
 
-import zeno.util.lang.util.CharIterator;
-import zeno.util.tools.Integers;
+import waffles.util.tools.primitives.Integers;
+import zeno.util.lang.util.iterators.CharIterator;
 
 /**
  * The {@code Strings} class defines basic operations for {@code String} objects.
  * 
- * @author Zeno
+ * @author Waffles
  * @since Sep 30, 2016
  * @version 1.0
  */
 public final class Strings
 {
 	/**
-	 * Repeats a characters multiple times in a string.
+	 * Repeats a character multiple times in a string.
 	 * 
 	 * @param c  a character to repeat
 	 * @param size  a string size
@@ -25,6 +25,38 @@ public final class Strings
 	public static String repeat(char c, int size)
 	{
 		return String.format("%1$" + size + "s", "").replace(' ', c);
+	}
+	
+	/**
+	 * Replaces the first occurrence of a regex in a string.
+	 * 
+	 * @param s   a string to modify
+	 * @param r1  a regex string to look for
+	 * @param r2  a string to replace with
+	 * @return    a modified string
+	 * 
+	 * 
+	 * @see String
+	 */
+	public static String replaceFirst(String s, String r1, String r2)
+	{
+		return s.replaceFirst(r1, r2);
+	}
+	
+	/**
+	 * Replaces the last occurrence of a regex in a string.
+	 * 
+	 * @param s   a string to modify
+	 * @param r1  a regex string to look for
+	 * @param r2  a string to replace with
+	 * @return    a modified string
+	 * 
+	 * 
+	 * @see String
+	 */
+	public static String replaceLast(String s, String r1, String r2)
+	{
+		return s.replaceFirst("(?s)(.*)" + r1, "$1" + r2);
 	}
 	
 	/**

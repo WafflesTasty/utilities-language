@@ -1,10 +1,11 @@
-package zeno.util.lang.constants;
+package zeno.util.lang.enums;
 
 /**
- * The {@code Confirmation} enumeration defines all states of confirmation.
+ * The {@code Confirmation} enumeration defines confirmation states.
  *
+ * @author Waffles
  * @since Aug 16, 2015
- * @author Zeno
+ * @version 1.0
  */
 public enum Confirmation
 {

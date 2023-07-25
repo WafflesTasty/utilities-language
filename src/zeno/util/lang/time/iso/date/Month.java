@@ -3,7 +3,7 @@ package zeno.util.lang.time.iso.date;
 /**
  * The {@code Month} enum defines all months in an ISO calender year.
  *
- * @author Zeno
+ * @author Waffles
  * @since 25 Jul 2020
  * @version 1.0
  */
