@@ -86,7 +86,7 @@ public class FMTDate extends Format<Date>
 	{
 		return date ->
 		{
-			String result = "" + date.Month().Index();
+			String result = "" + date.MonthOfYear();
 			if(result.length() < size)
 			{
 				return Strings.padLeft(result, '0', size);
@@ -118,7 +118,7 @@ public class FMTDate extends Format<Date>
 	
 	private Chunk<Date> FullMonths()
 	{
-		return date -> "" + date.Month().Index();
+		return date -> "" + date.MonthOfYear();
 	}
 	
 	private Chunk<Date> FullYears()
@@ -131,7 +131,7 @@ public class FMTDate extends Format<Date>
 	{
 		return date ->
 		{
-			return date.DayOfWeek().Name();
+			return date.WeekDayName();
 		};
 	}
 	
@@ -139,7 +139,7 @@ public class FMTDate extends Format<Date>
 	{
 		return date ->
 		{
-			return date.Month().Name();
+			return date.MonthName();
 		};
 	}
 }

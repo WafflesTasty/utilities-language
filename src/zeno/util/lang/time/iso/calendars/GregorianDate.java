@@ -1,21 +1,22 @@
 package zeno.util.lang.time.iso.calendars;
 
 import waffles.util.tools.primitives.Longs;
-import zeno.util.lang.time.Date;
+import zeno.util.lang.time.iso.ISODate;
 import zeno.util.lang.time.iso.enums.Month;
 import zeno.util.lang.time.iso.enums.WeekDay;
 
 /**
  * The {@code GregorianDate} class defines a proleptic Gregorian calendar.
+ * </br> This date is accurate from 15 October 1852.
  * 
- * @author Zeno
+ * @author Waffles
  * @since 25 Jul 2020
  * @version 1.0
  * 
  * 
- * @see Date
+ * @see ISODate
  */
-public class GregorianDate implements Date
+public class GregorianDate implements ISODate
 {
 	private static boolean isLeapYear(long year)
 	{
@@ -151,7 +152,7 @@ public class GregorianDate implements Date
 	{
 		return WeekDay.get((int) ((daysUntilYear(year) + day - 1) % 7 + 1));
 	}
-		
+			
 	@Override
 	public long DayOfMonth()
 	{

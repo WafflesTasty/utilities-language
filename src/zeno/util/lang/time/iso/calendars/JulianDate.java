@@ -1,21 +1,22 @@
 package zeno.util.lang.time.iso.calendars;
 
 import waffles.util.tools.primitives.Longs;
-import zeno.util.lang.time.Date;
+import zeno.util.lang.time.iso.ISODate;
 import zeno.util.lang.time.iso.enums.Month;
 import zeno.util.lang.time.iso.enums.WeekDay;
 
 /**
  * The {@code JulianDate} class defines a proleptic Julian calendar.
+ * </br> This date is accurate up to 4 October 1852.
  * 
- * @author Zeno
+ * @author Waffles
  * @since 25 Jul 2020
  * @version 1.0
  * 
  * 
- * @see Date
+ * @see ISODate
  */
-public class JulianDate implements Date
+public class JulianDate implements ISODate
 {
 	private static boolean isLeapYear(long year)
 	{

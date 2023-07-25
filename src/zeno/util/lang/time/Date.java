@@ -4,8 +4,6 @@ import waffles.util.tools.primitives.Longs;
 import zeno.util.lang.Format;
 import zeno.util.lang.Formattable;
 import zeno.util.lang.time.format.FMTDate;
-import zeno.util.lang.time.iso.enums.Month;
-import zeno.util.lang.time.iso.enums.WeekDay;
 import zeno.util.lang.util.ISO;
 
 /**
@@ -94,25 +92,32 @@ public interface Date extends Comparable<Date>, Formattable<Date>
 			
 	
 	/**
-	 * Returns the month in the {@code Date}.
+	 * Returns the month name in the {@code Date}.
 	 * 
-	 * @return  a month
+	 * @return  a month name
 	 * 
 	 * 
-	 * @see Month
+	 * @see String
 	 */
-	public abstract Month Month();
+	public abstract String MonthName();
 	
 	/**
-	 * Returns the day of the week in the {@code Date}.
+	 * Returns the week day name in the {@code Date}.
 	 * 
-	 * @return  a week day
+	 * @return  a week day name
 	 * 
 	 * 
-	 * @see WeekDay
+	 * @see String
 	 */
-	public abstract WeekDay DayOfWeek();
+	public abstract String WeekDayName();
 
+	/**
+	 * Returns the month of the year in the {@code Date}.
+	 * 
+	 * @return  a month of the year
+	 */
+	public abstract long MonthOfYear();
+	
 	/**
 	 * Returns the day of the month in the {@code Date}.
 	 * 

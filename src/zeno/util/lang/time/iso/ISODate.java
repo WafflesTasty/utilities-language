@@ -10,7 +10,7 @@ import zeno.util.lang.time.iso.enums.WeekDay;
 import zeno.util.lang.util.ISO;
 
 /**
- * The {@code ISODate} class defines a date that uses a historically accurate calendar.
+ * The {@code ISODate} interface defines a date that uses a historically accurate calendar.
  * </br> Until 4 October 1852, it makes use of the Julian calendar, and then switches
  * over to 15 October 1852 where it makes use of the Gregorian calendar.
  * This standard is given by {@code ISO-8601}.
@@ -22,10 +22,16 @@ import zeno.util.lang.util.ISO;
  * 
  * @see Date
  */
-public class ISODate implements Date
+public interface ISODate extends Date
 {
-	private static final GregorianDate FIRST_GREGORIAN = new GregorianDate(1582, Month.OCTOBER, 15);
-	private static final JulianDate LAST_JULIAN = new JulianDate(1582, Month.OCTOBER, 4);
+	/**
+	 * Defines the first day of the Gregorian calendar, 15 October 1852.
+	 */
+	public static final GregorianDate FIRST_GREGORIAN = new GregorianDate(1582, Month.OCTOBER, 15);
+	/**
+	 * Defines the last day of the Julian calendar, 4 oktober 1852.
+	 */
+	public static final JulianDate LAST_JULIAN = new JulianDate(1582, Month.OCTOBER, 4);
 	
 	/**
 	 * The {@code ExistenceError} is thrown when creating a non-existent {@code ISODate}.
@@ -55,7 +61,52 @@ public class ISODate implements Date
 			super("The date " + d.parse(ISO.Format.SHORT) + " does not exist in the ISO calendar.");
 		}
 	}
+
 	
+	/**
+	 * Creates a new {@code ISODate}.
+	 * 
+	 * @param y  an iso year
+	 * @param d  an iso day
+	 * @return   a iso date object
+	 */
+	public static ISODate create(long y, int d)
+	{
+		ISODate date = new JulianDate(y, d);
+		if(LAST_JULIAN.before(date))
+		{
+			date = new GregorianDate(y, d);
+			if(FIRST_GREGORIAN.after(date))
+			{
+				throw new ExistenceError(date);
+			}
+		}
+		
+		return date;
+	}
+	
+	/**
+	 * Creates a new {@code ISODate}.
+	 * 
+	 * @param y  an iso year
+	 * @param m  an iso month
+	 * @param d  an iso day
+	 * @return   a iso date object
+	 */
+	public static ISODate create(long y, int m, int d)
+	{
+		ISODate date = new JulianDate(y, m, d);
+		if(LAST_JULIAN.before(date))
+		{
+			date = new GregorianDate(y, m, d);
+			if(date.before(FIRST_GREGORIAN))
+			{
+				throw new ExistenceError(date);
+			}
+		}
+		
+		return date;
+	}
 	
 	/**
 	 * Converts a calendar into an {@code ISODate}.
@@ -72,7 +123,7 @@ public class ISODate implements Date
 		int d = cal.get(Calendar.DAY_OF_MONTH);
 		long y = cal.get(Calendar.YEAR);	
 		
-		return new ISODate(y, m, d);
+		return create(y, m, d);
 	}
 	
 	/**
@@ -84,92 +135,44 @@ public class ISODate implements Date
 	{
 		return from(Calendar.getInstance());
 	}
-
 	
-	private Date date;
 	
 	/**
-	 * Creates a new {@code ISODate}.
+	 * Returns the month of the {@code Calendar}.
 	 * 
-	 * @param y  an iso year
-	 * @param d  an iso day
-	 */
-	public ISODate(long y, int d)
-	{
-		date = new JulianDate(y, d);
-		if(LAST_JULIAN.before(date))
-		{
-			date = new GregorianDate(y, d);
-			if(FIRST_GREGORIAN.after(date))
-			{
-				throw new ExistenceError(date);
-			}
-		}
-	}
-	
-	/**
-	 * Creates a new {@code ISODate}.
-	 * 
-	 * @param y  an iso year
-	 * @param m  an iso month
-	 * @param d  an iso day
-	 */
-	public ISODate(long y, int m, int d)
-	{
-		this(y, Month.get(m), d);
-	}
-	
-	/**
-	 * Creates a new {@code ISODate}.
-	 * 
-	 * @param y  an iso year
-	 * @param m  an iso month
-	 * @param d  an iso day
+	 * @return  a calendar month
 	 * 
 	 * 
 	 * @see Month
 	 */
-	public ISODate(long y, Month m, int d)
-	{
-		date = new JulianDate(y, m, d);
-		if(LAST_JULIAN.before(date))
-		{
-			date = new GregorianDate(y, m, d);
-			if(date.before(FIRST_GREGORIAN))
-			{
-				throw new ExistenceError(date);
-			}
-		}
-	}
-
-
+	public abstract Month Month();
+	
+	/**
+	 * Returns the weekday of the {@code Calendar}.
+	 * 
+	 * @return  a day of the week
+	 * 
+	 * 
+	 * @see WeekDay
+	 */
+	public abstract WeekDay DayOfWeek();
+	
+	
 	@Override
-	public Month Month()
+	public default long MonthOfYear()
 	{
-		return date.Month();
-	}
-
-	@Override
-	public WeekDay DayOfWeek()
-	{
-		return date.DayOfWeek();
+		return Month().Index();
 	}
 	
 	@Override
-	public long DayOfMonth()
+	public default String WeekDayName()
 	{
-		return date.DayOfMonth();
-	}
-
-	@Override
-	public long DayOfYear()
-	{
-		return date.DayOfYear();
+		return DayOfWeek().Name();
 	}
 	
 	@Override
-	public long Year()
+	public default String MonthName()
 	{
-		return date.Year();
+		return Month().Name();
 	}
 }
