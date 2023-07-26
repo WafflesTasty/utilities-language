@@ -20,7 +20,7 @@ public class JulianDate implements ISODate
 {
 	private static boolean isLeapYear(long year)
 	{
-		return year % 4 == 0;
+		return Longs.mod(year, 4) == 0;
 	}
 	
 	private static int dayCount(long year, Month month)
@@ -66,7 +66,7 @@ public class JulianDate implements ISODate
 	
 	private static long daysUntilYear(long year)
 	{
-		return 365 * year - 366 + year / 4 + Longs.sign(year % 4);
+		return 365 * year - 366 + year / 4 + Longs.sign(Longs.mod(year, 4));
 	}
 	
 	private static int dayCount(long year)
@@ -145,7 +145,8 @@ public class JulianDate implements ISODate
 	@Override
 	public WeekDay DayOfWeek()
 	{
-		return WeekDay.get((int) ((daysUntilYear(year) + day - 3) % 7) + 1);
+		long weekday = daysUntilYear(year) + day - 3;
+		return WeekDay.get((int) (Longs.mod(weekday, 7) + 1));
 	}
 	
 	@Override

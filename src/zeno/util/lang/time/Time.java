@@ -48,7 +48,7 @@ public interface Time extends Comparable<Time>, Formattable<Time>
 	
 	
 	/**
-	 * Parses an {@code ISO Format} from the {@code Date}.
+	 * Parses an {@code ISO Format} from the {@code Time}.
 	 * 
 	 * @param fmt  an iso format
 	 * @return  a parsed string

@@ -20,9 +20,9 @@ public class GregorianDate implements ISODate
 {
 	private static boolean isLeapYear(long year)
 	{
-		if(year % 4 != 0) return false;
-		if(year % 100 != 0) return true;
-		return year % 400 == 0;
+		if(Longs.mod(year,   4) != 0) return false;
+		if(Longs.mod(year, 100) != 0) return true;
+		return Longs.mod(year, 400) == 0;
 	}
 	
 	private static int dayCount(long year, Month month)
@@ -69,9 +69,9 @@ public class GregorianDate implements ISODate
 	private static long daysUntilYear(long year)
 	{
 		return 365 * year - 366
-			+ year / 4   + Longs.sign(year % 4)
-			- year / 100 - Longs.sign(year % 100)
-			+ year / 400 + Longs.sign(year % 400);
+			+ year / 4   + Longs.sign(Longs.mod(year,   4))
+			- year / 100 - Longs.sign(Longs.mod(year, 100))
+			+ year / 400 + Longs.sign(Longs.mod(year, 400));
 	}
 	
 	private static int dayCount(long year)
