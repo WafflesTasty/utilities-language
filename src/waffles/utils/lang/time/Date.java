@@ -1,10 +1,10 @@
 package waffles.utils.lang.time;
 
-import waffles.util.tools.primitives.Longs;
 import waffles.utils.lang.Format;
 import waffles.utils.lang.Formattable;
 import waffles.utils.lang.time.format.FMTDate;
 import waffles.utils.lang.util.ISO;
+import waffles.utils.tools.primitives.Longs;
 
 /**
  * The {@code Date} interface defines a generic date-like object.

@@ -1,6 +1,6 @@
 package waffles.utils.lang;
 
-import waffles.util.tools.primitives.Array;
+import waffles.utils.tools.primitives.Array;
 
 /**
  * The {@code Format} class is an abstract superclass designed for string formatting.

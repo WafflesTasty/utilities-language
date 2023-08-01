@@ -1,9 +1,9 @@
 package waffles.utils.lang.time.iso.calendars;
 
-import waffles.util.tools.primitives.Longs;
 import waffles.utils.lang.time.iso.ISODate;
 import waffles.utils.lang.time.iso.enums.Month;
 import waffles.utils.lang.time.iso.enums.WeekDay;
+import waffles.utils.tools.primitives.Longs;
 
 /**
  * The {@code JulianDate} class defines a proleptic Julian calendar.

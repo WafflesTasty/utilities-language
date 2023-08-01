@@ -1,10 +1,10 @@
 package waffles.utils.lang.time;
 
-import waffles.util.tools.primitives.Longs;
 import waffles.utils.lang.Format;
 import waffles.utils.lang.Formattable;
 import waffles.utils.lang.time.format.FMTTime;
 import waffles.utils.lang.util.ISO;
+import waffles.utils.tools.primitives.Longs;
 
 /**
  * The {@code Time} interface defines a generic time-like object.

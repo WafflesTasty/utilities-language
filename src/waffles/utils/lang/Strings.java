@@ -1,7 +1,7 @@
 package waffles.utils.lang;
 
-import waffles.util.tools.primitives.Integers;
 import waffles.utils.lang.util.iterators.CharIterator;
+import waffles.utils.tools.primitives.Integers;
 
 /**
  * The {@code Strings} class defines basic operations for {@code String} objects.
