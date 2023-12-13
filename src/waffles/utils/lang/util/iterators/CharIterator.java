@@ -7,16 +7,16 @@ import java.util.Iterator;
  *
  * @author Waffles
  * @since 24 Jul 2020
- * @version 1.0
+ * @version 1.1
  * 
  * 
+ * @see Character
  * @see Iterator
- * @see String
  */
-public class CharIterator implements Iterator<String>
+public class CharIterator implements Iterator<Character>
 {
-	private int index;
-	private String source;
+	private int curr;
+	private String src;
 	
 	/**
 	 * Creates a new {@code CharIterator}.
@@ -28,19 +28,19 @@ public class CharIterator implements Iterator<String>
 	 */
 	public CharIterator(String s)
 	{
-		source = s;
+		src = s;
 	}
 	
 	
 	@Override
 	public boolean hasNext()
 	{
-		return index < source.length();
+		return curr < src.length();
 	}
 
 	@Override
-	public String next()
+	public Character next()
 	{
-		return "" + source.charAt(index++);
+		return src.charAt(curr++);
 	}
 }

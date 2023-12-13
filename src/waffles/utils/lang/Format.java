@@ -9,7 +9,7 @@ import waffles.utils.tools.primitives.Array;
  * 
  * @author Waffles
  * @since 26 Jul 2020
- * @version 1.0
+ * @version 1.1
  * 
  * 
  * @param <O>  an object type
@@ -59,19 +59,19 @@ public abstract class Format<O>
 		chunks = new Chunk[0];
 
 		// For each character in the format string...
-		for(String c : Strings.iterate(format))
+		for(char c : Strings.iterate(format))
 		{
 			// If the character is escaped...
 			if(curr.length() > 0 && curr.endsWith("\\"))
 			{
 				// Replace the escaped character.
-				curr = Strings.replaceLast(curr, "\\", c);
+				curr = Strings.replaceLast(curr, "\\", "" + c);
 				// Continue to the next one.
 				continue;
 			}
 			
 			// If the character is a limiter...
-			if(c.equals(delim))
+			if(delim.equals("" + c))
 			{
 				// And the current string is non-empty...
 				if(curr.length() > 0)

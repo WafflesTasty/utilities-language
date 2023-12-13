@@ -8,7 +8,7 @@ import waffles.utils.tools.primitives.Integers;
  * 
  * @author Waffles
  * @since Sep 30, 2016
- * @version 1.0
+ * @version 1.1
  */
 public final class Strings
 {
@@ -100,10 +100,10 @@ public final class Strings
 	 * @return   a character iterable
 	 * 
 	 * 
+	 * @see Character
 	 * @see Iterable
-	 * @see String
 	 */
-	public static Iterable<String> iterate(String s)
+	public static Iterable<Character> iterate(String s)
 	{
 		return () -> new CharIterator(s);
 	}
