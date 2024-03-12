@@ -36,9 +36,9 @@ public interface Formattable<O>
 	 * @see Format
 	 * @see String
 	 */
-	public default String parse(Format<O> fmt)
+	public default <P extends O> String parse(Format<P> fmt)
 	{
-		return fmt.parse((O) this);
+		return fmt.parse((P) this);
 	}
 	
 	/**
