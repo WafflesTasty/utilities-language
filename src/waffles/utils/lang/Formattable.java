@@ -56,4 +56,21 @@ public interface Formattable<O>
 	{
 		return parse(Formatter(fmt, delim));
 	}
+	
+	/**
+	 * Parses a string through the {@code Formattable}.
+	 * This method does not separate the format
+	 * string into chunks.
+	 * 
+	 * @param fmt    a format string
+	 * @return  a formatted string
+	 * 
+	 * 
+	 * @see Format
+	 * @see String
+	 */
+	public default String parse(String fmt)
+	{
+		return parse(Formatter(fmt, ""));
+	}
 }
