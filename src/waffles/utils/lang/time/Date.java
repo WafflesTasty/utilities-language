@@ -31,9 +31,9 @@ public interface Date extends Comparable<Date>, Formattable<Date>
 	
 	
 	@Override
-	public default Format<Date> Formatter(String fmt, String delim)
+	public default Format<Date> Formatter()
 	{
-		return new FMTDate(fmt, delim);
+		return SHORT_DATE;
 	}
 	
 	@Override

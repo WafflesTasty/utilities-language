@@ -1,7 +1,7 @@
 package waffles.utils.lang.time.format;
 
-import waffles.utils.lang.Format;
 import waffles.utils.lang.Strings;
+import waffles.utils.lang.format.ChunkFormat;
 import waffles.utils.lang.time.Date;
 
 /**
@@ -20,13 +20,13 @@ import waffles.utils.lang.time.Date;
  * 
  * @author Waffles
  * @since 26 Jul 2020
- * @version 1.0
+ * @version 1.1
  * 
  * 
- * @see Format
+ * @see ChunkFormat
  * @see Date
  */
-public class FMTDate extends Format<Date>
+public class FMTDate extends ChunkFormat<Date>
 {	
 	/**
 	 * Creates a new {@code FMTDate}.

@@ -13,6 +13,16 @@ import waffles.utils.tools.primitives.Integers;
 public final class Strings
 {
 	/**
+	 * Returns a system-dependent line separator.
+	 * 
+	 * @return  a new line
+	 */
+	public static String newLine()
+	{
+		return System.lineSeparator();
+	}
+	
+	/**
 	 * Repeats a character multiple times in a string.
 	 * 
 	 * @param c  a character to repeat

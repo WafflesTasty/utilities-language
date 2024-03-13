@@ -1,6 +1,5 @@
 package waffles.utils.lang.time;
 
-import waffles.utils.lang.Format;
 import waffles.utils.lang.Formattable;
 import waffles.utils.lang.time.format.FMTTime;
 import waffles.utils.lang.util.ISO;
@@ -31,9 +30,9 @@ public interface Time extends Comparable<Time>, Formattable<Time>
 		
 	
 	@Override
-	public default Format<Time> Formatter(String fmt, String delim)
+	public default FMTTime Formatter()
 	{
-		return new FMTTime(fmt, delim);
+		return LONG_TIME;
 	}
 	
 	@Override

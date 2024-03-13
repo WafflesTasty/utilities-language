@@ -15,16 +15,13 @@ public interface Formattable<O>
 	/**
 	 * Returns a formatter for the {@code Formattable}.
 	 * 
-	 * @param fmt    a format string
-	 * @param delim  a chunk delimiter
 	 * @return  a default formatter
 	 * 
 	 * 
 	 * @see Format
-	 * @see String
 	 */
-	public abstract Format<O> Formatter(String fmt, String delim);
-		
+	public abstract Format<O> Formatter();
+	
 	
 	/**
 	 * Parses a string through the {@code Formattable}.
@@ -40,37 +37,17 @@ public interface Formattable<O>
 	{
 		return fmt.parse((P) this);
 	}
-	
+		
 	/**
 	 * Parses a string through the {@code Formattable}.
 	 * 
-	 * @param fmt    a format string
-	 * @param delim  a chunk delimiter
 	 * @return  a formatted string
 	 * 
 	 * 
-	 * @see Format
 	 * @see String
 	 */
-	public default String parse(String fmt, String delim)
+	public default String parse()
 	{
-		return parse(Formatter(fmt, delim));
-	}
-	
-	/**
-	 * Parses a string through the {@code Formattable}.
-	 * This method does not separate the format
-	 * string into chunks.
-	 * 
-	 * @param fmt    a format string
-	 * @return  a formatted string
-	 * 
-	 * 
-	 * @see Format
-	 * @see String
-	 */
-	public default String parse(String fmt)
-	{
-		return parse(Formatter(fmt, ""));
+		return Formatter().parse((O) this);
 	}
 }

@@ -1,7 +1,7 @@
 package waffles.utils.lang.time.format;
 
-import waffles.utils.lang.Format;
 import waffles.utils.lang.Strings;
+import waffles.utils.lang.format.ChunkFormat;
 import waffles.utils.lang.time.Time;
 
 /**
@@ -15,13 +15,13 @@ import waffles.utils.lang.time.Time;
  * 
  * @author Waffles
  * @since 26 Jul 2020
- * @version 1.0
+ * @version 1.1
  * 
  * 
- * @see Format
+ * @see ChunkFormat
  * @see Time
  */
-public class FMTTime extends Format<Time>
+public class FMTTime extends ChunkFormat<Time>
 {	
 	/**
 	 * Creates a new {@code FMTTime}.
