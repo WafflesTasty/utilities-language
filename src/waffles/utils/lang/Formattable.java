@@ -35,7 +35,12 @@ public interface Formattable<O>
 	 */
 	public default <P extends O> String parse(Format<P> fmt)
 	{
-		return fmt.parse((P) this);
+		if(fmt != null)
+		{
+			return fmt.parse((P) this);
+		}
+		
+		return parse();
 	}
 		
 	/**
