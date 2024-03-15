@@ -17,7 +17,7 @@ public interface Formattable
 	 * 
 	 * @see Format
 	 */
-	public abstract <O> Format<O> Formatter();	
+	public abstract Format<?> Formatter();	
 	
 	/**
 	 * Parses a string through the {@code Formattable}.
@@ -29,9 +29,9 @@ public interface Formattable
 	 * @see Format
 	 * @see String
 	 */
-	public default <O> String parse(Format<O> fmt)
+	public default String parse(Format<?> fmt)
 	{
-		return fmt.parse((O) this);
+		return fmt.castAndParse(this);
 	}
 		
 	/**

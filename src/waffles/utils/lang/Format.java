@@ -23,4 +23,18 @@ public interface Format<O>
 	 * @see String
 	 */
 	public abstract String parse(O obj);
+	
+	/**
+	 * Casts and parses an object in the {@code Format}.
+	 * 
+	 * @param obj  a target object
+	 * @return  a parsed string
+	 * 
+	 * 
+	 * @see String
+	 */
+	public default String castAndParse(Object obj)
+	{
+		return parse((O) obj);
+	}
 }
