@@ -11,13 +11,13 @@ import waffles.utils.tools.primitives.Longs;
  *
  * @author Waffles
  * @since 26 Jul 2020
- * @version 1.0
+ * @version 1.1
  * 
  * 
  * @see Formattable
  * @see Comparable
  */
-public interface Date extends Comparable<Date>, Formattable<Date>
+public interface Date extends Comparable<Date>, Formattable
 {	
 	/**
 	 * Defines a {@code Format} for a long date string.

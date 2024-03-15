@@ -10,13 +10,13 @@ import waffles.utils.tools.primitives.Longs;
  *
  * @author Waffles
  * @since 26 Jul 2020
- * @version 1.0
+ * @version 1.1
  * 
  * 
  * @see Formattable
  * @see Comparable
  */
-public interface Time extends Comparable<Time>, Formattable<Time>
+public interface Time extends Comparable<Time>, Formattable
 {	
 	/**
 	 * Defines a {@code Format} for a short time string.

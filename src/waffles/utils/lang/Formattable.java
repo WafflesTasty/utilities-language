@@ -5,12 +5,9 @@ package waffles.utils.lang;
  * 
  * @author Waffles
  * @since Oct 3, 2016
- * @version 1.0
- * 
- * 
- * @param <O>  an object type
+ * @version 1.1
  */
-public interface Formattable<O>
+public interface Formattable
 {
 	/**
 	 * Returns a formatter for the {@code Formattable}.
@@ -20,8 +17,7 @@ public interface Formattable<O>
 	 * 
 	 * @see Format
 	 */
-	public abstract Format<O> Formatter();
-	
+	public abstract <O> Format<O> Formatter();	
 	
 	/**
 	 * Parses a string through the {@code Formattable}.
@@ -33,14 +29,9 @@ public interface Formattable<O>
 	 * @see Format
 	 * @see String
 	 */
-	public default <P extends O> String parse(Format<P> fmt)
+	public default <O> String parse(Format<O> fmt)
 	{
-		if(fmt != null)
-		{
-			return fmt.parse((P) this);
-		}
-		
-		return parse();
+		return fmt.parse((O) this);
 	}
 		
 	/**
@@ -53,6 +44,6 @@ public interface Formattable<O>
 	 */
 	public default String parse()
 	{
-		return Formatter().parse((O) this);
+		return parse(Formatter());
 	}
 }
