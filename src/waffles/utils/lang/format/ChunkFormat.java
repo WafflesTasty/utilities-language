@@ -19,33 +19,7 @@ import waffles.utils.tools.primitives.Array;
  */
 public abstract class ChunkFormat<O> implements Format<O>
 {
-	/**
-	 * The {@code Chunk} interface defines a single format chunk.
-	 *
-	 * @author Waffles
-	 * @since 26 Jul 2020
-	 * @version 1.0
-	 * 
-	 * 
-	 * @param <O>  an object type
-	 */
-	@FunctionalInterface
-	public static interface Chunk<O>
-	{
-		/**
-		 * Parses an object through the {@code Chunk}.
-		 * 
-		 * @param obj  an object to parse
-		 * @return  a parsed string
-		 * 
-		 * 
-		 * @see String
-		 */
-		public abstract String parse(O obj);
-	}
-
-	
-	private Chunk<O>[] chunks;
+	private Format<O>[] chunks;
 		
 	/**
 	 * Creates a new {@code ChunkFormat}.
@@ -59,7 +33,7 @@ public abstract class ChunkFormat<O> implements Format<O>
 	public ChunkFormat(String format, String delim)
 	{
 		String curr = "";
-		chunks = new Chunk[0];
+		chunks = new Format[0];
 
 		// For each character in the format string...
 		for(char c : Strings.iterate(format))
@@ -108,17 +82,16 @@ public abstract class ChunkFormat<O> implements Format<O>
 	 * @return  a format chunk
 	 * 
 	 * 
-	 * @see String
-	 * @see Chunk
+	 * @see Format
 	 */
-	public abstract Chunk<O> create(String fmt);
+	public abstract Format<O> create(String fmt);
 
 	
 	@Override
 	public String parse(O obj)
 	{
 		String parse = "";
-		for(Chunk<O> chunk : chunks)
+		for(Format<O> chunk : chunks)
 		{
 			parse += chunk.parse(obj);
 		}

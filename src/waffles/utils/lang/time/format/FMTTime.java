@@ -1,5 +1,6 @@
 package waffles.utils.lang.time.format;
 
+import waffles.utils.lang.Format;
 import waffles.utils.lang.Strings;
 import waffles.utils.lang.format.ChunkFormat;
 import waffles.utils.lang.time.Time;
@@ -38,7 +39,7 @@ public class FMTTime extends ChunkFormat<Time>
 	}
 	
 	@Override
-	public Chunk<Time> create(String fmt)
+	public Format<Time> create(String fmt)
 	{
 		if(fmt.matches("h+"))
 			return Hours(fmt.length());
@@ -51,7 +52,7 @@ public class FMTTime extends ChunkFormat<Time>
 	}
 
 		
-	Chunk<Time> Seconds(int length)
+	Format<Time> Seconds(int length)
 	{
 		return time ->
 		{
@@ -65,7 +66,7 @@ public class FMTTime extends ChunkFormat<Time>
 		};
 	}
 
-	Chunk<Time> Minutes(int length)
+	Format<Time> Minutes(int length)
 	{
 		return time ->
 		{
@@ -79,7 +80,7 @@ public class FMTTime extends ChunkFormat<Time>
 		};
 	}
 	
-	Chunk<Time> Hours(int length)
+	Format<Time> Hours(int length)
 	{
 		return time ->
 		{

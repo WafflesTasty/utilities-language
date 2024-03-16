@@ -1,5 +1,6 @@
 package waffles.utils.lang.time.format;
 
+import waffles.utils.lang.Format;
 import waffles.utils.lang.Strings;
 import waffles.utils.lang.format.ChunkFormat;
 import waffles.utils.lang.time.Date;
@@ -43,7 +44,7 @@ public class FMTDate extends ChunkFormat<Date>
 	}
 	
 	@Override
-	public Chunk<Date> create(String fmt)
+	public Format<Date> create(String fmt)
 	{
 		if(fmt.matches("d+"))
 			return Days(fmt.length());
@@ -68,7 +69,7 @@ public class FMTDate extends ChunkFormat<Date>
 	}
 
 	
-	private Chunk<Date> Days(int size)
+	private Format<Date> Days(int size)
 	{
 		return date ->
 		{
@@ -82,7 +83,7 @@ public class FMTDate extends ChunkFormat<Date>
 		};
 	}
 	
-	private Chunk<Date> Months(int size)
+	private Format<Date> Months(int size)
 	{
 		return date ->
 		{
@@ -96,7 +97,7 @@ public class FMTDate extends ChunkFormat<Date>
 		};
 	}
 	
-	private Chunk<Date> Years(int size)
+	private Format<Date> Years(int size)
 	{
 		return date ->
 		{
@@ -111,23 +112,23 @@ public class FMTDate extends ChunkFormat<Date>
 	}
 	
 	
-	private Chunk<Date> FullDays()
+	private Format<Date> FullDays()
 	{
 		return date -> "" + date.DayOfMonth();
 	}
 	
-	private Chunk<Date> FullMonths()
+	private Format<Date> FullMonths()
 	{
 		return date -> "" + date.MonthOfYear();
 	}
 	
-	private Chunk<Date> FullYears()
+	private Format<Date> FullYears()
 	{
 		return date -> "" + date.Year();
 	}
 	
 	
-	private Chunk<Date> WeekDay()
+	private Format<Date> WeekDay()
 	{
 		return date ->
 		{
@@ -135,7 +136,7 @@ public class FMTDate extends ChunkFormat<Date>
 		};
 	}
 	
-	private Chunk<Date> Month()
+	private Format<Date> Month()
 	{
 		return date ->
 		{
