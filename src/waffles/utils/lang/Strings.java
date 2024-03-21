@@ -34,7 +34,12 @@ public final class Strings
 	 */
 	public static String repeat(char c, int size)
 	{
-		return String.format("%1$" + size + "s", "").replace(' ', c);
+		if(size > 0)
+		{
+			return String.format("%1$" + size + "s", "").replace(' ', c);
+		}
+		
+		return "";
 	}
 
 	
