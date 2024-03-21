@@ -36,6 +36,7 @@ public final class Strings
 	{
 		return String.format("%1$" + size + "s", "").replace(' ', c);
 	}
+
 	
 	/**
 	 * Replaces the first occurrence of a regex in a string.
@@ -116,6 +117,25 @@ public final class Strings
 	public static Iterable<Character> iterate(String s)
 	{
 		return () -> new CharIterator(s);
+	}
+	
+	/**
+	 * Checks if a string contains a whitespace character.
+	 * 
+	 * @param s  a string to check
+	 * @return  {@code true} if the string contains whitespace
+	 */
+	public static boolean hasWhiteSpace(String s)
+	{
+		for(char c : iterate(s))
+		{
+			if(Character.isWhitespace(c))
+			{
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	
