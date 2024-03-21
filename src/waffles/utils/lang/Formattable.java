@@ -19,6 +19,37 @@ public interface Formattable
 	 */
 	public abstract Format<?> Formatter();	
 	
+	
+	/**
+	 * Parses a verbose string through the {@code Formattable}.
+	 * 
+	 * @return  a set of formatted strings
+	 * 
+	 * 
+	 * @see Iterable
+	 * @see String
+	 */
+	public default Iterable<String> verbose()
+	{
+		return verbose(Formatter());
+	}
+	
+	/**
+	 * Parses a verbose string through the {@code Formattable}.
+	 * 
+	 * @param fmt  an object formatter
+	 * @return  a set of formatted strings
+	 * 
+	 * 
+	 * @see Iterable
+	 * @see Format
+	 * @see String
+	 */
+	public default Iterable<String> verbose(Format<?> fmt)
+	{
+		return fmt.castAndVerbose(this);
+	}
+	
 	/**
 	 * Parses a string through the {@code Formattable}.
 	 * 
@@ -33,7 +64,7 @@ public interface Formattable
 	{
 		return fmt.castAndParse(this);
 	}
-		
+			
 	/**
 	 * Parses a string through the {@code Formattable}.
 	 * 

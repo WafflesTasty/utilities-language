@@ -25,7 +25,36 @@ public interface Format<O>
 	 * @see String
 	 */
 	public abstract String parse(O obj);
-	
+		
+	/**
+	 * Casts and parses an object in the {@code Format}.
+	 * 
+	 * @param obj  a target object
+	 * @return  a parsed string
+	 * 
+	 * 
+	 * @see String
+	 */
+	public default String castAndParse(Object obj)
+	{
+		return parse((O) obj);
+	}
+		
+	/**
+	 * Casts and parses a verbose object in the {@code Format}.
+	 * 
+	 * @param obj  a target object
+	 * @return  an iterable of parsed strings
+	 * 
+	 * 
+	 * @see Iterable
+	 * @see String
+	 */
+	public default Iterable<String> castAndVerbose(Object obj)
+	{
+		return Iterables.singleton(parse((O) obj));
+	}
+
 	/**
 	 * Parses a verbose object in the {@code Format}.
 	 * By default, this method simply iterates the same
@@ -42,20 +71,6 @@ public interface Format<O>
 	 */
 	public default Iterable<String> verbose(O obj)
 	{
-		return Iterables.singleton(parse(obj));
-	}
-	
-	/**
-	 * Casts and parses an object in the {@code Format}.
-	 * 
-	 * @param obj  a target object
-	 * @return  a parsed string
-	 * 
-	 * 
-	 * @see String
-	 */
-	public default String castAndParse(Object obj)
-	{
-		return parse((O) obj);
+		return castAndVerbose(obj);
 	}
 }
