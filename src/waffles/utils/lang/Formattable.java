@@ -47,7 +47,7 @@ public interface Formattable
 	 */
 	public default Iterable<String> verbose(Format<?> fmt)
 	{
-		return fmt.castAndVerbose(this);
+		return () -> fmt.castAndVerbose(this);
 	}
 	
 	/**

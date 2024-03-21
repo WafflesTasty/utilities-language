@@ -1,6 +1,8 @@
 package waffles.utils.lang;
 
-import waffles.utils.tools.collections.Iterables;
+import java.util.Iterator;
+
+import waffles.utils.tools.collections.iterators.SingleIterator;
 
 /**
  * A {@code Format} is capable of formatting objects into strings.
@@ -47,12 +49,12 @@ public interface Format<O>
 	 * @return  an iterable of parsed strings
 	 * 
 	 * 
-	 * @see Iterable
+	 * @see Iterator
 	 * @see String
 	 */
-	public default Iterable<String> castAndVerbose(Object obj)
+	public default Iterator<String> castAndVerbose(Object obj)
 	{
-		return Iterables.singleton(parse((O) obj));
+		return verbose((O) obj);
 	}
 
 	/**
@@ -66,11 +68,11 @@ public interface Format<O>
 	 * @return  an iterable of parsed strings
 	 * 
 	 * 
-	 * @see Iterable
+	 * @see Iterator
 	 * @see String
 	 */
-	public default Iterable<String> verbose(O obj)
+	public default Iterator<String> verbose(O obj)
 	{
-		return castAndVerbose(obj);
+		return new SingleIterator<>(parse(obj));
 	}
 }
