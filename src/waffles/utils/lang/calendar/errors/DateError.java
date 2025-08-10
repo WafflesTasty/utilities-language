@@ -1,4 +1,4 @@
-package waffles.utils.lang.utilities.errors;
+package waffles.utils.lang.calendar.errors;
 
 import waffles.utils.lang.calendar.Date;
 import waffles.utils.lang.utilities.ISO;
