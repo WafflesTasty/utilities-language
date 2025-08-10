@@ -1,10 +1,10 @@
 package waffles.utils.lang;
 
-import waffles.utils.lang.util.iterators.CharIterator;
+import waffles.utils.lang.utilities.iterators.CharIterator;
 import waffles.utils.tools.primitives.Integers;
 
 /**
- * The {@code Strings} class defines basic operations for {@code String} objects.
+ * The {@code Strings} class defines basic operations for string values.
  * 
  * @author Waffles
  * @since Sep 30, 2016
@@ -12,6 +12,8 @@ import waffles.utils.tools.primitives.Integers;
  */
 public final class Strings
 {
+	// Constants
+	
 	/**
 	 * Returns a system-dependent line separator.
 	 * 
@@ -21,6 +23,31 @@ public final class Strings
 	{
 		return System.lineSeparator();
 	}
+	
+	
+	// Checks
+	
+	/**
+	 * Checks if a string contains a whitespace character.
+	 * 
+	 * @param s  a string to check
+	 * @return  {@code true} if the string contains whitespace
+	 */
+	public static boolean hasWhiteSpace(String s)
+	{
+		for(char c : iterate(s))
+		{
+			if(Characters.isWhiteSpace(c))
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	
+	// Generators
 	
 	/**
 	 * Repeats a character multiple times in a string.
@@ -42,6 +69,78 @@ public final class Strings
 		return "";
 	}
 
+	/**
+	 * Concatenates an iterable of strings into a string.
+	 * 
+	 * @param set  a set of strings
+	 * @return  a concatenated string
+	 * 
+	 * 
+	 * @see Iterable
+	 */
+	public static String concatenate(Iterable<String> set)
+	{
+		String result = "";
+		for(String s : set)
+		{
+			result += s;
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * Returns an {@code Iterable} of characters in a string.
+	 * 
+	 * @param s  a target string
+	 * @return   a character iterable
+	 * 
+	 * 
+	 * @see Character
+	 * @see Iterable
+	 */
+	public static Iterable<Character> iterate(String s)
+	{
+		return () -> new CharIterator(s);
+	}
+	
+	
+	// Manipulators
+			
+	/**
+	 * Pads the left side of an object string up to a given size.
+	 * 
+	 * @param o     an object to parse
+	 * @param c     a padding character
+	 * @param size  a target string size
+	 * @return  a left-padded string
+	 * 
+	 * 
+	 * @see Object
+	 * @see String
+	 */
+	public static String padLeft(Object o, char c, int size)
+	{
+		return repeat(c, Integers.max(0, size - o.toString().length())) + o;
+	}
+	
+	/**
+	 * Pads the right side of an object string up to a given size.
+	 * 
+	 * @param o     an object to parse
+	 * @param c     a padding character
+	 * @param size  a target string size
+	 * @return  a right-padded string
+	 * 
+	 * 
+	 * @see Object
+	 * @see String
+	 */
+	public static String padRight(Object o, char c, int size)
+	{
+		return o + repeat(c, Integers.max(0, size - o.toString().length()));
+	}
+	
 	
 	/**
 	 * Replaces the first occurrence of a regex in a string.
@@ -72,77 +171,9 @@ public final class Strings
 	 */
 	public static String replaceLast(String s, String r1, String r2)
 	{
-		return s.replaceFirst("(?s)(.*)" + r1, "$1" + r2);
+		return s.replaceFirst("(.*)" + r1, "$1" + r2);
 	}
-	
-	/**
-	 * Pads the right side of an object string up to a given size.
-	 * 
-	 * @param o     an object to parse
-	 * @param c     a padding character
-	 * @param size  a target string size
-	 * @return  a right-padded string
-	 * 
-	 * 
-	 * @see Object
-	 * @see String
-	 */
-	public static String padRight(Object o, char c, int size)
-	{
-		return o + repeat(c, Integers.max(0, size - o.toString().length()));
-	}
-	
-	/**
-	 * Pads the left side of an object string up to a given size.
-	 * 
-	 * @param o     an object to parse
-	 * @param c     a padding character
-	 * @param size  a target string size
-	 * @return  a left-padded string
-	 * 
-	 * 
-	 * @see Object
-	 * @see String
-	 */
-	public static String padLeft(Object o, char c, int size)
-	{
-		return repeat(c, Integers.max(0, size - o.toString().length())) + o;
-	}
-	
-	/**
-	 * Returns an {@code Iterable} over characters of a string.
-	 * 
-	 * @param s  a target string
-	 * @return   a character iterable
-	 * 
-	 * 
-	 * @see Character
-	 * @see Iterable
-	 */
-	public static Iterable<Character> iterate(String s)
-	{
-		return () -> new CharIterator(s);
-	}
-	
-	/**
-	 * Checks if a string contains a whitespace character.
-	 * 
-	 * @param s  a string to check
-	 * @return  {@code true} if the string contains whitespace
-	 */
-	public static boolean hasWhiteSpace(String s)
-	{
-		for(char c : iterate(s))
-		{
-			if(Character.isWhitespace(c))
-			{
-				return true;
-			}
-		}
-		
-		return false;
-	}
-	
+			
 	
 	private Strings()
 	{
