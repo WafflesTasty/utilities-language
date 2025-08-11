@@ -1,20 +1,20 @@
 package waffles.utils.lang.measure.iso.units;
 
-import waffles.utils.lang.measure.iso.ISOMeasure;
+import waffles.utils.lang.measure.iso.ISOMetric;
 import waffles.utils.lang.measure.iso.ISOPrefix;
 import waffles.utils.lang.utilities.patterns.Labelled;
 
 /**
- * An {@code ISOMeter} defines an {@code ISOMeasure} for length.
+ * An {@code ISOMeter} defines an {@code ISOMetric} for length.
  *
  * @author Waffles
  * @since 11 Aug 2025
  * @version 1.1
  *
  * 
- * @see ISOMeasure
+ * @see ISOMetric
  */
-public class ISOMeter extends ISOMeasure
+public class ISOMeter extends ISOMetric
 {
 	/**
 	 * Defines the label of the {@code ISOMeter}.

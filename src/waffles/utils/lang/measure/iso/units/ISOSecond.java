@@ -1,20 +1,20 @@
 package waffles.utils.lang.measure.iso.units;
 
-import waffles.utils.lang.measure.iso.ISOMeasure;
+import waffles.utils.lang.measure.iso.ISOMetric;
 import waffles.utils.lang.measure.iso.ISOPrefix;
 import waffles.utils.lang.utilities.patterns.Labelled;
 
 /**
- * An {@code ISOSecond} defines an {@code ISOMeasure} for time.
+ * An {@code ISOSecond} defines an {@code ISOMetric} for time.
  *
  * @author Waffles
  * @since 11 Aug 2025
  * @version 1.1
  *
  * 
- * @see ISOMeasure
+ * @see ISOMetric
  */
-public class ISOSecond extends ISOMeasure
+public class ISOSecond extends ISOMetric
 {
 	/**
 	 * Defines the label of the {@code ISOSecond}.

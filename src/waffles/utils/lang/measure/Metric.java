@@ -8,7 +8,7 @@ import waffles.utils.lang.utilities.patterns.Labelled;
 import waffles.utils.tools.patterns.properties.values.Valuable;
 
 /**
- * A {@code Measure} defines a value with a unit of measure.
+ * A {@code Metric} defines a value with a unit of measure.
  *
  * @author Waffles
  * @since 10 Aug 2025
@@ -19,7 +19,7 @@ import waffles.utils.tools.patterns.properties.values.Valuable;
  * @see Token
  */
 @FunctionalInterface
-public interface Measure extends Token, Valuable<Double>
+public interface Metric extends Token, Valuable<Double>
 {
 	/**
 	 * Defines a {@code Format} for a standard measure string.
@@ -33,7 +33,7 @@ public interface Measure extends Token, Valuable<Double>
 	
 	
 	/**
-	 * Returns the prefix of the {@code Measure}.
+	 * Returns the prefix of the {@code Metric}.
 	 * 
 	 * @return  a measure prefix
 	 * 
@@ -46,7 +46,7 @@ public interface Measure extends Token, Valuable<Double>
 	}
 	
 	/**
-	 * Returns the unit of the {@code Measure}.
+	 * Returns the unit of the {@code Metric}.
 	 * 
 	 * @return  a measure unit
 	 * 
@@ -60,7 +60,7 @@ public interface Measure extends Token, Valuable<Double>
 	
 	
 	/**
-	 * Condenses the {@code Measure} into a string.
+	 * Condenses the {@code Metric} into a string.
 	 * 
 	 * @param fmt  a format type
 	 * @return  a measure string
@@ -71,7 +71,7 @@ public interface Measure extends Token, Valuable<Double>
 	}
 	
 	/**
-	 * Returns a {@code Measure} formatter.
+	 * Returns a {@code Metric} formatter.
 	 * 
 	 * @param fmt  a format type
 	 * @return  a measure formatter

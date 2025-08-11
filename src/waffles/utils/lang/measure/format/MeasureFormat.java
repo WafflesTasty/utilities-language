@@ -1,12 +1,12 @@
 package waffles.utils.lang.measure.format;
 
-import waffles.utils.lang.measure.Measure;
+import waffles.utils.lang.measure.Metric;
 import waffles.utils.lang.tokens.format.regex.RegexFormat;
 import waffles.utils.lang.tokens.format.regex.RegexFormat.Hints;
 import waffles.utils.lang.tokens.format.regex.values.RXRPadder;
 
 /**
- * A {@code MeasureFormat} defines a formatter for {@code Measure}.
+ * A {@code MeasureFormat} defines a formatter for {@code Metric}.
  * As an implementation of {@code RegexFormat}, it allows the following expressions.
  * <ul>
  *  <li>{@code v+}: Displays the value, padded with zeroes on the right.</li>
@@ -21,9 +21,9 @@ import waffles.utils.lang.tokens.format.regex.values.RXRPadder;
  *
  * 
  * @see RegexFormat
- * @see Measure
+ * @see Metric
  */
-public class MeasureFormat extends RegexFormat<Measure>
+public class MeasureFormat extends RegexFormat<Metric>
 {
 	/**
 	 * Creates a new {@code MeasureFormat}.

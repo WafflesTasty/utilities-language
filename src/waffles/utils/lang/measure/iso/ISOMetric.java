@@ -1,34 +1,34 @@
 package waffles.utils.lang.measure.iso;
 
-import waffles.utils.lang.measure.Measure;
+import waffles.utils.lang.measure.Metric;
 
 /**
- * An {@code ISOMeasure} implements a {@code Measure} according to the iso standard.
+ * An {@code ISOMetric} implements a {@code Metric} according to the iso standard.
  *
  * @author Waffles
  * @since 10 Aug 2025
  * @version 1.1
  * 
  * 
- * @see Measure
+ * @see Metric
  */
-public class ISOMeasure implements Measure
+public class ISOMetric implements Metric
 {
 	private double val;
 	private ISOPrefix pfx;
 	
 	/**
-	 * Creates a new {@code ISOMeasure}.
+	 * Creates a new {@code ISOMetric}.
 	 * 
 	 * @param v  an iso value
 	 */
-	public ISOMeasure(double v)
+	public ISOMetric(double v)
 	{
 		this(v, ISOPrefix.NONE);
 	}
 	
 	/**
-	 * Creates a new {@code ISOMeasure}.
+	 * Creates a new {@code ISOMetric}.
 	 * 
 	 * @param v  an iso value
 	 * @param p  an iso prefix
@@ -36,7 +36,7 @@ public class ISOMeasure implements Measure
 	 * 
 	 * @see ISOPrefix
 	 */
-	public ISOMeasure(double v, ISOPrefix p)
+	public ISOMetric(double v, ISOPrefix p)
 	{
 		pfx = p;
 		val = v;
