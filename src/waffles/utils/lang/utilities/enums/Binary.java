@@ -1,4 +1,4 @@
-package waffles.utils.lang.utilities.values;
+package waffles.utils.lang.utilities.enums;
 
 /**
  * The {@code Binary} enum defines binary values.

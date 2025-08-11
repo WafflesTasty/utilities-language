@@ -3,7 +3,7 @@ package waffles.utils.lang.calendar.format;
 import waffles.utils.lang.calendar.Time;
 import waffles.utils.lang.tokens.format.regex.RegexFormat;
 import waffles.utils.lang.tokens.format.regex.RegexFormat.Hints;
-import waffles.utils.lang.tokens.format.regex.values.RegexPadding;
+import waffles.utils.lang.tokens.format.regex.values.RXLPadder;
 
 /**
  * A {@code TimeFormat} defines a formatter for {@code Time}.
@@ -35,9 +35,9 @@ public class TimeFormat extends RegexFormat<Time>
 	public TimeFormat(Hints h)
 	{
 		super(h);
-		put("h+", new RegexPadding<>(t -> "" + t.Hours()));
-		put("m+", new RegexPadding<>(t -> "" + t.Minutes()));
-		put("s+", new RegexPadding<>(t -> "" + t.Seconds()));
+		put("h+", new RXLPadder<>('0', t -> "" + t.Hours()));
+		put("m+", new RXLPadder<>('0', t -> "" + t.Minutes()));
+		put("s+", new RXLPadder<>('0', t -> "" + t.Seconds()));
 	}
 	
 	/**

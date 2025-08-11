@@ -1,4 +1,4 @@
-package waffles.utils.lang.utilities.values;
+package waffles.utils.lang.utilities.enums;
 
 /**
  * The {@code Sign} enum defines all real value signs.

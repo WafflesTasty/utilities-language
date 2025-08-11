@@ -6,7 +6,7 @@ import waffles.utils.tools.patterns.Computable;
 
 /**
  * 
- * A {@code RegexPadding} pads a generated string to the length of the format.
+ * An {@code RXLPadder} right pads a generated string to the length of the format.
  *
  * @author Waffles
  * @since 10 Aug 2025
@@ -16,20 +16,22 @@ import waffles.utils.tools.patterns.Computable;
  * @param <O>  an object type
  * @see RegexValue
  */
-public class RegexPadding<O> implements RegexValue<O>
+public class RXRPadder<O> implements RegexValue<O>
 {
+	private char chp;
 	private Computable<O, String> src;
 	
 	/**
-	 * Creates a new {@code RegexPadding}.
+	 * Creates a new {@code RXRPadder}.
 	 * 
+	 * @param c  a padding character
 	 * @param s  a computable source
-	 * 
 	 * 
 	 * @see Computable
 	 */
-	public RegexPadding(Computable<O, String> s)
+	public RXRPadder(char c, Computable<O, String> s)
 	{
+		chp = c;
 		src = s;
 	}
 	
@@ -41,7 +43,7 @@ public class RegexPadding<O> implements RegexValue<O>
 		String s = src.compute(obj);
 		if(s.length() < len)
 		{
-			return Strings.padLeft(s, '0', len);
+			return Strings.padRight(s, chp, len);
 		}
 		
 		return s.substring(s.length() - len);

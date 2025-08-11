@@ -3,7 +3,7 @@ package waffles.utils.lang.calendar.format;
 import waffles.utils.lang.calendar.Date;
 import waffles.utils.lang.tokens.format.regex.RegexFormat;
 import waffles.utils.lang.tokens.format.regex.RegexFormat.Hints;
-import waffles.utils.lang.tokens.format.regex.values.RegexPadding;
+import waffles.utils.lang.tokens.format.regex.values.RXLPadder;
 
 /**
  * A {@code DateFormat} defines a formatter for {@code Date}.
@@ -48,9 +48,9 @@ public class DateFormat extends RegexFormat<Date>
 		put("M", (d, s) -> "" + d.MonthOfYear());
 		put("D", (d, s) -> "" + d.DayOfMonth());
 		
-		put("y+", new RegexPadding<>(d -> "" + d.Year()));
-		put("m+", new RegexPadding<>(d -> "" + d.MonthOfYear()));
-		put("d+", new RegexPadding<>(d -> "" + d.DayOfMonth()));
+		put("y+", new RXLPadder<>('0', d -> "" + d.Year()));
+		put("m+", new RXLPadder<>('0', d -> "" + d.MonthOfYear()));
+		put("d+", new RXLPadder<>('0', d -> "" + d.DayOfMonth()));
 	}
 	
 	/**

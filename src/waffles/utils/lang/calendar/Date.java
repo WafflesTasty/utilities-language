@@ -41,7 +41,11 @@ public interface Date extends Comparable<Date>, Token
 	{
 		if(Year() < d.Year()) return -1;
 		if(d.Year() < Year()) return +1;
-		return (int) Longs.sign(DayOfYear() - d.DayOfYear());
+		
+		long d1 =   DayOfYear();
+		long d2 = d.DayOfYear();
+		
+		return (int) Longs.sign(d1 - d2);
 	}
 	
 	
