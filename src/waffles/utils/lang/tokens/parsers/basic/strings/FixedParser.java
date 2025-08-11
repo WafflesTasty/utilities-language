@@ -1,4 +1,4 @@
-package waffles.utils.lang.tokens.parsers.strings;
+package waffles.utils.lang.tokens.parsers.basic.strings;
 
 import waffles.utils.lang.Characters;
 import waffles.utils.lang.tokens.parsers.Parsable;

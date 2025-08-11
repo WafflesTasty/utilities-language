@@ -1,8 +1,9 @@
-package waffles.utils.lang.tokens.parsers;
+package waffles.utils.lang.tokens.parsers.basic;
 
 import waffles.utils.lang.Characters;
 import waffles.utils.lang.tokens.format.PairFormat;
 import waffles.utils.lang.tokens.format.PairFormat.Hints;
+import waffles.utils.lang.tokens.parsers.Parsable;
 
 /**
  * A {@code PairParser} parses a key-value pair separated by a character.
