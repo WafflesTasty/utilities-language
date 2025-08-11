@@ -149,7 +149,7 @@ public class RegexFormat<T extends Token> implements Format<T>
 					{
 						if(s.matches(r.Label()))
 						{
-							s = r.generate(tkn, s);
+							s = "" + r.generate(tkn, s);
 							break;
 						}
 					}

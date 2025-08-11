@@ -20,5 +20,5 @@ public interface RegexValue<O>
 	 * @param fmt  a format string
 	 * @return  a value string
 	 */
-	public abstract String generate(O obj, String fmt);
+	public abstract Object generate(O obj, String fmt);
 }

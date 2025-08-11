@@ -60,7 +60,7 @@ public class RegexToken<T extends Token> implements Labelled, RegexValue<T>
 	
 
 	@Override
-	public String generate(T tkn, String s)
+	public Object generate(T tkn, String s)
 	{
 		return value.generate(tkn, s);
 	}

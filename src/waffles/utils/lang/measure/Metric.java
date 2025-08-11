@@ -1,9 +1,8 @@
 package waffles.utils.lang.measure;
 
-import waffles.utils.lang.measure.format.MeasureFormat;
+import waffles.utils.lang.measure.iso.ISOMetric;
 import waffles.utils.lang.tokens.Token;
 import waffles.utils.lang.tokens.format.Format;
-import waffles.utils.lang.utilities.ISO;
 import waffles.utils.lang.utilities.patterns.Labelled;
 import waffles.utils.tools.patterns.properties.values.Valuable;
 
@@ -20,18 +19,7 @@ import waffles.utils.tools.patterns.properties.values.Valuable;
  */
 @FunctionalInterface
 public interface Metric extends Token, Valuable<Double>
-{
-	/**
-	 * Defines a {@code Format} for a standard measure string.
-	 */
-	public static MeasureFormat STANDARD = new MeasureFormat("§vvvvvvvv§ §P§§U§");
-	
-	/**
-	 * Defines a {@code Format} for a scientific measure string.
-	 */
-	public static MeasureFormat SCIENTIFIC = new MeasureFormat("§vvvvvvvv§ x §E§ §U§");
-	
-	
+{	
 	/**
 	 * Returns the prefix of the {@code Metric}.
 	 * 
@@ -57,45 +45,11 @@ public interface Metric extends Token, Valuable<Double>
 	{
 		return () -> "";
 	}
-	
-	
-	/**
-	 * Condenses the {@code Metric} into a string.
-	 * 
-	 * @param fmt  a format type
-	 * @return  a measure string
-	 */
-	public default String condense(ISO.Format fmt)
-	{
-		return condense(Formatter(fmt));
-	}
-	
-	/**
-	 * Returns a {@code Metric} formatter.
-	 * 
-	 * @param fmt  a format type
-	 * @return  a measure formatter
-	 * 
-	 * 
-	 * @see Format
-	 */
-	public default Format<?> Formatter(ISO.Format fmt)
-	{
-		switch(fmt)
-		{
-		case LONG:
-			return SCIENTIFIC;
-		case SHORT:
-			return STANDARD;
-		default:
-			return null;
-		}
-	}
-	
-	
+
+
 	@Override
 	public default Format<?> Formatter()
 	{
-		return Formatter(ISO.Format.SHORT);
+		return ISOMetric.STANDARD;
 	}
 }
