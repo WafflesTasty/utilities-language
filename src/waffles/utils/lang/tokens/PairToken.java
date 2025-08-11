@@ -2,7 +2,7 @@ package waffles.utils.lang.tokens;
 
 import waffles.utils.lang.tokens.format.Format;
 import waffles.utils.lang.tokens.format.PairFormat;
-import waffles.utils.lang.utilities.Pair;
+import waffles.utils.sets.utilities.Pair;
 
 /**
  * A {@code PairToken} defines a {@code Token} consisting of a key-value {@code Pair}.
