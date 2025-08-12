@@ -28,33 +28,4 @@ public interface ISODate extends Date
 	
 	@Override
 	public abstract ISOWeek Week();
-	
-//	/**
-//	 * Returns the weekday of the {@code Calendar}.
-//	 * 
-//	 * @return  a day of the week
-//	 * 
-//	 * 
-//	 * @see WeekDay
-//	 */
-//	public abstract WeekDay DayOfWeek();
-//	
-//	
-//	@Override
-//	public default long MonthOfYear()
-//	{
-//		return Month().Index();
-//	}
-//	
-//	@Override
-//	public default String WeekDayName()
-//	{
-//		return DayOfWeek().Name();
-//	}
-//	
-//	@Override
-//	public default String MonthName()
-//	{
-//		return Month().Name();
-//	}
 }

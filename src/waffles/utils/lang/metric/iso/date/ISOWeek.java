@@ -105,8 +105,6 @@ public abstract class ISOWeek implements Week
 			return index;
 		}
 	}
-
-	
 	
 	/**
 	 * A {@code Gregorian ISOWeek} follows the Gregorian calendar.

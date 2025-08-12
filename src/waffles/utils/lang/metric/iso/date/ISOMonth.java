@@ -225,10 +225,21 @@ public class ISOMonth implements Month
 	}
 		
 	
-	@Override
-	public int ID()
+	long Days(Lunar m)
 	{
-		return Lunar().ID();
+		long days = 0;
+		for(int i = 1; i < m.ID(); i++)
+		{
+			Lunar month = Lunar.get(i);
+			if(month == Lunar.FEBRUARY && date.Year().isLeap())
+			{
+				days++;
+			}
+			
+			days += month.Days();
+		}
+		
+		return days;
 	}
 	
 	@Override
@@ -258,21 +269,9 @@ public class ISOMonth implements Month
 		return 0;
 	}
 	
-	
-	long Days(Lunar m)
+	@Override
+	public int ID()
 	{
-		long days = 0;
-		for(int i = 1; i < m.ID(); i++)
-		{
-			Lunar month = Lunar.get(i);
-			if(month == Lunar.FEBRUARY && date.Year().isLeap())
-			{
-				days++;
-			}
-			
-			days += month.Days();
-		}
-		
-		return days;
+		return Lunar().ID();
 	}
 }
