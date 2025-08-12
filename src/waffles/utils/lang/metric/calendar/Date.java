@@ -22,10 +22,41 @@ import waffles.utils.tools.primitives.Longs;
  */
 public interface Date extends Momentary<Date>, Token
 {	
+	/**
+	 * Returns the week of the {@code Date}.
+	 * 
+	 * @return  a date week
+	 * 
+	 * 
+	 * @see Week
+	 */
+	public abstract Week Week();
+	
+	/**
+	 * Returns the month of the {@code Date}.
+	 * 
+	 * @return  a date month
+	 * 
+	 * 
+	 * @see Month
+	 */
+	public abstract Month Month();
+	
+	/**
+	 * Returns the year of the {@code Date}.
+	 * 
+	 * @return  a date year
+	 * 
+	 * 
+	 * @see Year
+	 */
+	public abstract Year Year();
+	
+	
 	@Override
 	public default DateFormat Formatter()
 	{
-		return DateFormat.SHORT;
+		return Formatter(ISO.Format.SHORT);
 	}
 	
 	@Override
@@ -59,35 +90,4 @@ public interface Date extends Momentary<Date>, Token
 			return (int) dy;
 		return (int) dd;
 	}
-	
-	
-	/**
-	 * Returns the week of the {@code Date}.
-	 * 
-	 * @return  a date week
-	 * 
-	 * 
-	 * @see Week
-	 */
-	public abstract Week Week();
-	
-	/**
-	 * Returns the month of the {@code Date}.
-	 * 
-	 * @return  a date month
-	 * 
-	 * 
-	 * @see Month
-	 */
-	public abstract Month Month();
-	
-	/**
-	 * Returns the year of the {@code Date}.
-	 * 
-	 * @return  a date year
-	 * 
-	 * 
-	 * @see Year
-	 */
-	public abstract Year Year();
 }

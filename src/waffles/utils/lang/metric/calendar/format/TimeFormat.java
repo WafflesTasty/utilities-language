@@ -25,6 +25,17 @@ import waffles.utils.lang.tokens.format.regex.values.RXLPadder;
 public class TimeFormat extends RegexFormat<Time>
 {
 	/**
+	 * Defines a {@code TimeFormat} for a long string.
+	 */
+	public static TimeFormat LONG = new TimeFormat("§hh§:§mm§:§ss§");
+	
+	/**
+	 * Defines a {@code TimeFormat} for a short string.
+	 */
+	public static TimeFormat SHORT = new TimeFormat("§hh§:§mm§");
+	
+	
+	/**
 	 * Creates a new {@code TimeFormat}.
 	 * 
 	 * @param h  format hints

@@ -21,17 +21,6 @@ import waffles.utils.tools.primitives.Longs;
 public interface Time extends Momentary<Time>, Token
 {		
 	/**
-	 * Defines a {@code Format} for a long time string.
-	 */
-	public static TimeFormat LONG_TIME = new TimeFormat("§hh§:§mm§:§ss§");
-	
-	/**
-	 * Defines a {@code Format} for a short time string.
-	 */
-	public static TimeFormat SHORT_TIME = new TimeFormat("§hh§:§mm§");
-	
-				
-	/**
 	 * Returns the seconds of the {@code Time}.
 	 * 
 	 * @return  time seconds
@@ -56,7 +45,7 @@ public interface Time extends Momentary<Time>, Token
 	@Override
 	public default TimeFormat Formatter()
 	{
-		return LONG_TIME;
+		return Formatter(ISO.Format.LONG);
 	}
 	
 	@Override
@@ -65,9 +54,9 @@ public interface Time extends Momentary<Time>, Token
 		switch(fmt)
 		{
 		case LONG:
-			return LONG_TIME;
+			return TimeFormat.LONG;
 		case SHORT:
-			return SHORT_TIME;
+			return TimeFormat.SHORT;
 		default:
 			return null;
 		}
