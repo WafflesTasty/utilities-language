@@ -1,6 +1,6 @@
-package waffles.utils.lang.measure.iso;
+package waffles.utils.lang.metric.iso;
 
-import waffles.utils.lang.measure.Prefix;
+import waffles.utils.lang.metric.Prefix;
 
 /**
  * The {@code ISOPrefix} enum defines prefixes according to the ISO standard.

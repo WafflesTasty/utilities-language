@@ -1,7 +1,7 @@
-package waffles.utils.lang.measure.iso.units;
+package waffles.utils.lang.metric.iso.units;
 
-import waffles.utils.lang.measure.iso.ISOMetric;
-import waffles.utils.lang.measure.iso.ISOPrefix;
+import waffles.utils.lang.metric.iso.ISOMetric;
+import waffles.utils.lang.metric.iso.ISOPrefix;
 import waffles.utils.lang.utilities.patterns.Labelled;
 
 /**

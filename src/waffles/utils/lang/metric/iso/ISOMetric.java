@@ -1,7 +1,7 @@
-package waffles.utils.lang.measure.iso;
+package waffles.utils.lang.metric.iso;
 
-import waffles.utils.lang.measure.Metric;
-import waffles.utils.lang.measure.format.MetricFormat;
+import waffles.utils.lang.metric.Metric;
+import waffles.utils.lang.metric.format.MetricFormat;
 
 /**
  * An {@code ISOMetric} implements a {@code Metric} according to the iso standard.

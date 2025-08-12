@@ -1,6 +1,6 @@
-package waffles.utils.lang.measure.format;
+package waffles.utils.lang.metric.format;
 
-import waffles.utils.lang.measure.Metric;
+import waffles.utils.lang.metric.Metric;
 import waffles.utils.lang.tokens.format.regex.RegexFormat;
 import waffles.utils.lang.tokens.format.regex.RegexFormat.Hints;
 import waffles.utils.lang.tokens.format.regex.values.RXRPadder;

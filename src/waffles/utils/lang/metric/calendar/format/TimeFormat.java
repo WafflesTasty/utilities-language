@@ -1,6 +1,6 @@
-package waffles.utils.lang.calendar.format;
+package waffles.utils.lang.metric.calendar.format;
 
-import waffles.utils.lang.calendar.Time;
+import waffles.utils.lang.metric.calendar.Time;
 import waffles.utils.lang.tokens.format.regex.RegexFormat;
 import waffles.utils.lang.tokens.format.regex.RegexFormat.Hints;
 import waffles.utils.lang.tokens.format.regex.values.RXLPadder;

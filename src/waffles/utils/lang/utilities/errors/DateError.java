@@ -1,6 +1,6 @@
-package waffles.utils.lang.calendar.errors;
+package waffles.utils.lang.utilities.errors;
 
-import waffles.utils.lang.calendar.Date;
+import waffles.utils.lang.metric.calendar.Date;
 import waffles.utils.lang.utilities.ISO;
 
 /**
@@ -28,6 +28,6 @@ public class DateError extends RuntimeException
 	 */
 	public DateError(Date d)
 	{
-		super("The date " + d.parse(ISO.Format.SHORT) + " does not exist in the ISO calendar.");
+		super("The date " + d.condense(ISO.Format.SHORT) + " does not exist in the ISO calendar.");
 	}
 }

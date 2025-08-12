@@ -1,11 +1,11 @@
-package waffles.utils.lang.calendar.iso;
+package waffles.utils.lang.metric.iso;
 
-import waffles.utils.lang.calendar.Time;
+import waffles.utils.lang.metric.calendar.Time;
 
 /**
- * The {@code ISOTime} class defines a time as stated by {@code ISO-8601}.
+ * An {@code ISOTime} implements {@code Time} according to the standard {@code ISO-8601}.
  *
- * @author Zeno
+ * @author Waffles
  * @since 26 Jul 2020
  * @version 1.0
  * 

@@ -1,4 +1,4 @@
-package waffles.utils.lang.measure;
+package waffles.utils.lang.metric;
 
 import waffles.utils.lang.utilities.patterns.Labelled;
 

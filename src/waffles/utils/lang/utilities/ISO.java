@@ -2,12 +2,12 @@ package waffles.utils.lang.utilities;
 
 import java.util.Calendar;
 
-import waffles.utils.lang.calendar.errors.DateError;
-import waffles.utils.lang.calendar.iso.ISODate;
-import waffles.utils.lang.calendar.iso.ISOTime;
-import waffles.utils.lang.calendar.iso.date.GregorianDate;
-import waffles.utils.lang.calendar.iso.date.JulianDate;
-import waffles.utils.lang.calendar.iso.enums.Month;
+import waffles.utils.lang.metric.iso.ISODate;
+import waffles.utils.lang.metric.iso.ISOTime;
+import waffles.utils.lang.metric.iso.date.ISOMonth.Lunar;
+import waffles.utils.lang.metric.iso.date.types.GregorianDate;
+import waffles.utils.lang.metric.iso.date.types.JulianDate;
+import waffles.utils.lang.utilities.errors.DateError;
 
 /**
  * The {@code ISO} class defines utilities for the ISO standard.
@@ -47,14 +47,14 @@ public final class ISO
 	public static class Date
 	{
 		/**
-		 * Defines the last day of the Julian calendar, 4 oktober 1852.
+		 * Defines the last day of the Julian calendar, 4 October 1852.
 		 */
-		public static final JulianDate LAST_JULIAN = new JulianDate(1582, Month.OCTOBER, 4);
+		public static final JulianDate LAST_JULIAN = new JulianDate(1582, Lunar.OCTOBER, 4);
 		
 		/**
 		 * Defines the first day of the Gregorian calendar, 15 October 1852.
 		 */
-		public static final GregorianDate FIRST_GREGORIAN = new GregorianDate(1582, Month.OCTOBER, 15);
+		public static final GregorianDate FIRST_GREGORIAN = new GregorianDate(1582, Lunar.OCTOBER, 15);
 		
 		
 		/**

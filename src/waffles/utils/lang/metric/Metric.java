@@ -1,6 +1,6 @@
-package waffles.utils.lang.measure;
+package waffles.utils.lang.metric;
 
-import waffles.utils.lang.measure.iso.ISOMetric;
+import waffles.utils.lang.metric.iso.ISOMetric;
 import waffles.utils.lang.tokens.Token;
 import waffles.utils.lang.tokens.format.Format;
 import waffles.utils.lang.utilities.patterns.Labelled;
