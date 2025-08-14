@@ -36,7 +36,7 @@ public class BooleanParser extends FixedSetParser<Boolean>
 		@Override
 		public String[] Set()
 		{
-			return new String[]{"true,", "false"};
+			return new String[]{"true", "false"};
 		}
 	}
 	
