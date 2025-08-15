@@ -1,8 +1,8 @@
 package waffles.utils.lang.tokens.parsers.choice;
 
 import waffles.utils.lang.tokens.parsers.Parsable;
-import waffles.utils.sets.MutableSet;
-import waffles.utils.sets.keymaps.IndexMap;
+import waffles.utils.sets.countable.MutableSet;
+import waffles.utils.sets.countable.keymaps.search.IndexMap;
 import waffles.utils.sets.utilities.Iterables;
 import waffles.utils.tools.patterns.Computable;
 
@@ -52,7 +52,7 @@ public class ChoiceParser<I, O> extends IndexMap<Parsable<?>, Boolean> implement
 	 */
 	public Iterable<Parsable<?>> Parsers()
 	{
-		return Iterables.reverseOf(this);
+		return Iterables.reverse(Index());
 	}
 
 	

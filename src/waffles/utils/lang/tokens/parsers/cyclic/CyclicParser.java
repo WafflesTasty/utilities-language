@@ -2,7 +2,7 @@ package waffles.utils.lang.tokens.parsers.cyclic;
 
 import waffles.utils.lang.Characters;
 import waffles.utils.lang.tokens.parsers.Parsable;
-import waffles.utils.sets.indexed.delegate.List;
+import waffles.utils.sets.countable.wrapper.JavaList;
 import waffles.utils.tools.primitives.Integers;
 
 /**
@@ -18,9 +18,9 @@ import waffles.utils.tools.primitives.Integers;
  *
  * @param <O>  an object type
  * @see Parsable
- * @see List
+ * @see JavaList
  */
-public class CyclicParser<O> implements Parsable<List<O>>
+public class CyclicParser<O> implements Parsable<JavaList<O>>
 {
 	static enum State
 	{
@@ -81,7 +81,7 @@ public class CyclicParser<O> implements Parsable<List<O>>
 
 
 	private int curr;
-	private List<O> data;
+	private JavaList<O> data;
 	private Parsable<O> prs;
 	private Hints<O> hints;
 	private State state;
@@ -97,7 +97,7 @@ public class CyclicParser<O> implements Parsable<List<O>>
 	public CyclicParser(Hints<O> h)
 	{
 		state = State.INITIAL;
-		data = new List<>();
+		data = new JavaList<>();
 		hints = h;
 	}
 	
@@ -174,7 +174,7 @@ public class CyclicParser<O> implements Parsable<List<O>>
 	}
 
 	@Override
-	public List<O> generate()
+	public JavaList<O> generate()
 	{
 		return data;
 	}

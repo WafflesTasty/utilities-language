@@ -6,7 +6,7 @@ import waffles.utils.lang.tokens.format.Format;
 import waffles.utils.lang.tokens.format.regex.RegexToken.Type;
 import waffles.utils.lang.tokens.parsers.basic.AnyParser;
 import waffles.utils.lang.utilities.patterns.Labelled;
-import waffles.utils.sets.indexed.delegate.List;
+import waffles.utils.sets.countable.wrapper.JavaList;
 
 /**
  * A {@code RegexFormat} parses a {@code Token} according to a regex format string.
@@ -56,7 +56,7 @@ public class RegexFormat<T extends Token> implements Format<T>
 	
 	private Type type;
 	private AnyParser parser;
-	private List<RegexToken<T>> regex;
+	private JavaList<RegexToken<T>> regex;
 	private Hints hints;
 	
 	/**
@@ -71,7 +71,7 @@ public class RegexFormat<T extends Token> implements Format<T>
 	{
 		char d = h.Delimiter();
 		parser = new AnyParser(c -> c != d);
-		regex = new List<>();
+		regex = new JavaList<>();
 		type = Type.STATIC;
 		hints = h;
 	}
