@@ -23,7 +23,7 @@ public class ISOMetric implements Metric
 	/**
 	 * Defines a {@code Format} for a scientific metric string.
 	 */
-	public static MetricFormat SCIENTIFIC = new MetricFormat("§vvvvvvvv§ x §R§^§E§");
+	public static MetricFormat SCIENTIFIC = new MetricFormat("§vvvvvvvv§ x §R§^§E§ §U§");
 	
 	/**
 	 * The {@code Format} defines basic isometric format types.

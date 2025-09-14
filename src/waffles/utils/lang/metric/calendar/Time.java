@@ -3,7 +3,7 @@ package waffles.utils.lang.metric.calendar;
 import waffles.utils.lang.metric.calendar.format.TimeFormat;
 import waffles.utils.lang.tokens.Token;
 import waffles.utils.lang.utilities.ISO;
-import waffles.utils.lang.utilities.patterns.Momentary;
+import waffles.utils.lang.utilities.patterns.moments.ISOMomentary;
 import waffles.utils.tools.primitives.Longs;
 
 /**
@@ -15,10 +15,10 @@ import waffles.utils.tools.primitives.Longs;
  * @version 1.1
  * 
  * 
- * @see Momentary
+ * @see ISOMomentary
  * @see Token
  */
-public interface Time extends Momentary<Time>, Token
+public interface Time extends ISOMomentary<Time>, Token
 {		
 	/**
 	 * Returns the seconds of the {@code Time}.

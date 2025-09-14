@@ -67,10 +67,10 @@ public final class ISO
 		public static ISODate create(long y, int d)
 		{
 			ISODate date = new JulianDate(y, d);
-			if(LAST_JULIAN.before(date))
+			if(LAST_JULIAN.isBefore(date))
 			{
 				date = new GregorianDate(y, d);
-				if(FIRST_GREGORIAN.after(date))
+				if(FIRST_GREGORIAN.isAfter(date))
 				{
 					throw new DateError(date);
 				}
@@ -90,10 +90,10 @@ public final class ISO
 		public static ISODate create(long y, int m, int d)
 		{
 			ISODate date = new JulianDate(y, m, d);
-			if(LAST_JULIAN.before(date))
+			if(LAST_JULIAN.isBefore(date))
 			{
 				date = new GregorianDate(y, m, d);
-				if(date.before(FIRST_GREGORIAN))
+				if(date.isBefore(FIRST_GREGORIAN))
 				{
 					throw new DateError(date);
 				}

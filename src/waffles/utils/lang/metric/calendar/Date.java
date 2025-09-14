@@ -6,7 +6,7 @@ import waffles.utils.lang.metric.calendar.date.Year;
 import waffles.utils.lang.metric.calendar.format.DateFormat;
 import waffles.utils.lang.tokens.Token;
 import waffles.utils.lang.utilities.ISO;
-import waffles.utils.lang.utilities.patterns.Momentary;
+import waffles.utils.lang.utilities.patterns.moments.ISOMomentary;
 import waffles.utils.tools.primitives.Longs;
 
 /**
@@ -17,10 +17,10 @@ import waffles.utils.tools.primitives.Longs;
  * @version 1.1
  * 
  * 
- * @see Momentary
+ * @see ISOMomentary
  * @see Token
  */
-public interface Date extends Momentary<Date>, Token
+public interface Date extends ISOMomentary<Date>, Token
 {	
 	/**
 	 * Returns the week of the {@code Date}.
