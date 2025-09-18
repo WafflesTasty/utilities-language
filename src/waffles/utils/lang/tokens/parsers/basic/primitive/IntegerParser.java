@@ -65,7 +65,12 @@ public class IntegerParser extends BasicParser<Integer>
 	@Override
 	public Integer compute(String s)
 	{
-		return Integers.parse(s);
+		if(s.length() > 0)
+		{
+			return Integers.parse(s);
+		}
+		
+		return 0;
 	}
 
 	@Override

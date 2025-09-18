@@ -59,7 +59,12 @@ public class FloatParser extends BasicParser<Float>
 	@Override
 	public Float compute(String s)
 	{
-		return Floats.parse(s);
+		if(s.length() > 0)
+		{
+			return Floats.parse(s);
+		}
+		
+		return 0f;
 	}
 		
 	@Override
