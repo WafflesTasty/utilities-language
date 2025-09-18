@@ -1,6 +1,7 @@
 package waffles.utils.lang.tokens.parsers.basic.primitive;
 
 import waffles.utils.lang.tokens.parsers.basic.BasicParser;
+import waffles.utils.lang.utilities.enums.Existence;
 import waffles.utils.tools.primitives.Array;
 import waffles.utils.tools.primitives.Floats;
 
@@ -30,15 +31,28 @@ public class FloatParser extends BasicParser<Float>
 	
 	
 	private State state;
+	private Existence sign;
 	
 	/**
 	 * Creates a new {@code FloatParser}.
-	 * The default delimiter is '"'.
-	 * The default escape is '\'.
+	 * 
+	 * @param s  a sign existence
+	 * 
+	 * 
+	 * @see Existence
+	 */
+	public FloatParser(Existence s)
+	{
+		state = State.INITIAL;
+		sign = s;
+	}
+	
+	/**
+	 * Creates a new {@code FloatParser}.
 	 */
 	public FloatParser()
 	{
-		state = State.INITIAL;
+		this(Existence.OPTIONAL);
 	}
 	
 	
@@ -59,7 +73,12 @@ public class FloatParser extends BasicParser<Float>
 			{
 				if(Array.contents.has(SIGNS, s))
 				{
-					return true;
+					return sign != Existence.ABSENT;
+				}
+				
+				if(sign == Existence.OBLIGATORY)
+				{
+					return false;
 				}
 			}
 			

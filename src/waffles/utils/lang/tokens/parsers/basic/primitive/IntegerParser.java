@@ -1,6 +1,7 @@
 package waffles.utils.lang.tokens.parsers.basic.primitive;
 
 import waffles.utils.lang.tokens.parsers.basic.BasicParser;
+import waffles.utils.lang.utilities.enums.Existence;
 import waffles.utils.tools.primitives.Array;
 import waffles.utils.tools.primitives.Integers;
 
@@ -36,13 +37,28 @@ public class IntegerParser extends BasicParser<Integer>
 	
 	
 	private State state;
+	private Existence sign;
+	
+	/**
+	 * Creates a new {@code IntegerParser}.
+	 * 
+	 * @param s  a sign existence
+	 * 
+	 * 
+	 * @see Existence
+	 */
+	public IntegerParser(Existence s)
+	{
+		state = State.INITIAL;
+		sign = s;
+	}
 	
 	/**
 	 * Creates a new {@code IntegerParser}.
 	 */
 	public IntegerParser()
 	{
-		state = State.INITIAL;
+		this(Existence.OPTIONAL);
 	}
 	
 	
@@ -62,7 +78,12 @@ public class IntegerParser extends BasicParser<Integer>
 			if(Array.contents.has(SIGNS, s))
 			{
 				state = State.INTEGER;
-				return true;
+				return sign != Existence.ABSENT;
+			}
+			
+			if(sign == Existence.OBLIGATORY)
+			{
+				return false;
 			}
 			
 			state = State.INTEGER;
