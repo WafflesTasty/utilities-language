@@ -8,30 +8,30 @@ package waffles.utils.lang.utilities.patterns.moments;
  * @version 1.1
  *
  *
- * @param <M>  a momentary type
+ * @param <C>  a comparable type
  * @see Comparable
  */
-public interface Momentary<M extends Momentary<?>> extends Comparable<M>
+public interface Momentary<C> extends Comparable<C>
 {
 	/**
 	 * Check if this happened before a {@code Momentary}.
 	 * 
-	 * @param m  a momentary
-	 * @return  {@code true} if this happened before
+	 * @param c  a comparable
+	 * @return  {@code true} if this exists before
 	 */
-	public default boolean isBefore(M m)
+	public default boolean isBefore(C c)
 	{
-		return compareTo(m) < 0;
+		return compareTo(c) < 0;
 	}
 
 	/**
 	 * Check if this happened after a {@code Momentary}.
 	 * 
-	 * @param m  a momentary
-	 * @return  {@code true} if this happened after
+	 * @param c  a comparable
+	 * @return  {@code true} if this exists after
 	 */
-	public default boolean isAfter(M m)
+	public default boolean isAfter(C c)
 	{
-		return compareTo(m) > 0;
+		return compareTo(c) > 0;
 	}
 }
