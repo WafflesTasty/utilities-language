@@ -102,7 +102,7 @@ public class PrimitiveToken implements Token
 
 
 	@Override
-	public Format<PrimitiveToken> Formatter()
+	public Format<? extends PrimitiveToken> Formatter()
 	{
 		return obj ->
 		{
