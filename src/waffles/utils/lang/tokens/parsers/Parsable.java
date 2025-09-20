@@ -1,5 +1,6 @@
 package waffles.utils.lang.tokens.parsers;
 
+import waffles.utils.lang.Strings;
 import waffles.utils.tools.patterns.Consumable;
 import waffles.utils.tools.patterns.basic.Resettable;
 
@@ -52,4 +53,20 @@ public interface Parsable<O> extends Consumable<Character>, Resettable
 	 * @return  a parsed object
 	 */
 	public abstract O generate();
+	
+	/**
+	 * Parses a string using the {@code Parser}.
+	 * 
+	 * @param s  a source string
+	 * @return   a parsed object
+	 */
+	public default O parse(String s)
+	{
+		for(char c : Strings.iterate(s))
+		{
+			consume(c);
+		}
+		
+		return generate();
+	}
 }
