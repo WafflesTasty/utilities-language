@@ -67,6 +67,7 @@ public interface Parsable<O> extends Consumable<Character>, Resettable
 			consume(c);
 		}
 		
-		return generate();
+		O o = generate();
+		reset(); return o;
 	}
 }
