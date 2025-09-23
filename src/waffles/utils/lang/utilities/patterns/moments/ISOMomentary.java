@@ -1,5 +1,6 @@
 package waffles.utils.lang.utilities.patterns.moments;
 
+import waffles.utils.lang.tokens.Token;
 import waffles.utils.lang.tokens.format.Format;
 import waffles.utils.lang.utilities.ISO;
 
@@ -11,10 +12,11 @@ import waffles.utils.lang.utilities.ISO;
  * @version 1.1
  *
  *
- * @param <M>  a momentary type
+ * @param <M>  a comparable type
  * @see Momentary
+ * @see Token
  */
-public interface ISOMomentary<M extends ISOMomentary<?>> extends Momentary<M>
+public interface ISOMomentary<M> extends Momentary<M>, Token
 {
 	/**
 	 * Returns a formatter for the {@code ISOMomentary}.
@@ -36,5 +38,12 @@ public interface ISOMomentary<M extends ISOMomentary<?>> extends Momentary<M>
 	public default String condense(ISO.Format fmt)
 	{
 		return Formatter(fmt).castAndParse(this);
+	}
+	
+	
+	@Override
+	public default Format<?> Formatter()
+	{
+		return Formatter(ISO.Format.LONG);
 	}
 }
