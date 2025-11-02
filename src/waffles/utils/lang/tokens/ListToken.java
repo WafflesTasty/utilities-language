@@ -28,6 +28,37 @@ public interface ListToken<T extends Token> extends Token
 	public abstract Iterable<T> Tokens();
 	
 	
+	/**
+	 * Returns a {@code ListToken} formatter.
+	 * 
+	 * @param low  a lower delimiter
+	 * @param sep  a character separator
+	 * @param upp  a upper delimiter
+	 * @return  a list formatter
+	 * 
+	 * 
+	 * @see Format
+	 */
+	public default Format<?> Formatter(char low, char sep, char upp)
+	{
+		return new ListFormat<>(low, sep, upp);
+	}
+	
+	/**
+	 * Returns a {@code ListToken} formatter.
+	 * 
+	 * @param low  a lower delimiter
+	 * @param upp  a upper delimiter
+	 * @return  a list formatter
+	 * 
+	 * 
+	 * @see Format
+	 */
+	public default Format<?> Formatter(char low, char upp)
+	{
+		return new ListFormat<>(low, upp);
+	}
+	
 	@Override
 	public default Format<?> Formatter()
 	{
