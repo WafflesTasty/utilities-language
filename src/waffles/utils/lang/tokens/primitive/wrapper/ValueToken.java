@@ -1,7 +1,9 @@
-package waffles.utils.lang.tokens.primitive;
+package waffles.utils.lang.tokens.primitive.wrapper;
 
 import waffles.utils.lang.tokens.Token;
 import waffles.utils.lang.tokens.format.Format;
+import waffles.utils.lang.tokens.primitive.PrimitiveToken;
+import waffles.utils.lang.tokens.primitive.StringToken;
 import waffles.utils.tools.patterns.properties.values.Valuable;
 
 /**
