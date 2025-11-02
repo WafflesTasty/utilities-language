@@ -32,6 +32,20 @@ public interface ListToken<T extends Token> extends Token
 	/**
 	 * Returns a {@code ListToken} formatter.
 	 * 
+	 * @param sep  a character separator
+	 * @return  a list formatter
+	 * 
+	 * 
+	 * @see Format
+	 */
+	public default Format<?> Formatter(char sep)
+	{
+		return new ListFormat<>(sep);
+	}
+	
+	/**
+	 * Returns a {@code ListToken} formatter.
+	 * 
 	 * @param low  a lower delimiter
 	 * @param sep  a character separator
 	 * @param upp  a upper delimiter
@@ -59,6 +73,7 @@ public interface ListToken<T extends Token> extends Token
 	{
 		return new ListFormat<>(low, upp);
 	}
+	
 	
 	@Override
 	public default Format<?> Formatter()
