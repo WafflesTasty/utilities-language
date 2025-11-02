@@ -115,4 +115,16 @@ public class PrimitiveToken implements Token
 			return "";
 		};
 	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		if(o instanceof PrimitiveToken)
+		{
+			PrimitiveToken t = (PrimitiveToken) o;
+			return t.Value() == Value();
+		}
+
+		return false;
+	}
 }
