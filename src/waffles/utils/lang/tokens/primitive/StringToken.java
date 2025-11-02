@@ -3,6 +3,7 @@ package waffles.utils.lang.tokens.primitive;
 import waffles.utils.lang.Strings;
 import waffles.utils.lang.tokens.format.Format;
 import waffles.utils.lang.tokens.parsers.choice.primitive.StringParser;
+import waffles.utils.tools.patterns.properties.Gateway;
 
 /**
  * A {@code StringToken} extends the {@code LiteralToken} token with a general string.
@@ -127,6 +128,22 @@ public class StringToken extends LiteralToken
 	 */
 	public Format<PrimitiveToken> Formatter(char d)
 	{
+		return Formatter(s -> Strings.hasWhiteSpace(s), d);
+	}
+	
+	/**
+	 * Returns a formatter for the {@code StringToken}.
+	 * 
+	 * @param g  a string gateway
+	 * @param d  a string delimiter
+	 * @return   a string formatter
+	 * 
+	 * 
+	 * @see PrimitiveToken
+	 * @see Format
+	 */
+	public Format<PrimitiveToken> Formatter(Gateway<String> g, char d)
+	{
 		return obj ->
 		{
 			Object val = obj.Value();
@@ -139,7 +156,7 @@ public class StringToken extends LiteralToken
 			}
 			
 			String format = val.toString();
-			if(Strings.hasWhiteSpace(format))
+			if(g.allows(format))
 			{
 				return d + format + d;
 			}
@@ -147,6 +164,7 @@ public class StringToken extends LiteralToken
 			return format;
 		};
 	}
+	
 	
 	@Override
 	public Format<PrimitiveToken> Formatter()
