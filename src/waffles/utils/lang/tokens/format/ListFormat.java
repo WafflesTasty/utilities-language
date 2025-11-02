@@ -153,6 +153,35 @@ public class ListFormat<T extends Token> implements Format<ListToken<T>>
 	/**
 	 * Creates a new {@code ListFormat}.
 	 * 
+	 * @param sep  separator between list objects
+	 */
+	public ListFormat(char sep)
+	{
+		this(new Hints()
+		{
+			@Override
+			public Character LowerBound()
+			{
+				return null;
+			}
+
+			@Override
+			public Character UpperBound()
+			{
+				return null;
+			}
+			
+			@Override
+			public char Separator()
+			{
+				return sep;
+			}
+		});
+	}
+	
+	/**
+	 * Creates a new {@code ListFormat}.
+	 * 
 	 * @param low  lower character of the list
 	 * @param upp  upper character of the list
 	 */
@@ -252,7 +281,11 @@ public class ListFormat<T extends Token> implements Format<ListToken<T>>
 			isEmpty = false;
 		}
 
-		prs += u;
+		if(u != null)
+		{
+			prs += u;
+		}
+		
 		return prs;
 	}
 }
