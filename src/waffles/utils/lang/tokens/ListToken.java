@@ -15,6 +15,7 @@ import waffles.utils.lang.tokens.format.ListFormat;
  * @param <T>  a token type
  * @see Token
  */
+@FunctionalInterface
 public interface ListToken<T extends Token> extends Token
 {
 	/**

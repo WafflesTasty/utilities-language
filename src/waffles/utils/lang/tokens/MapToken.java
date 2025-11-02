@@ -12,6 +12,7 @@ package waffles.utils.lang.tokens;
  * @see ListToken
  * @see PairToken
  */
+@FunctionalInterface
 public interface MapToken<T extends PairToken<?, ?>> extends ListToken<T>
 {
 	// NOT APPLICABLE
