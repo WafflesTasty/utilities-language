@@ -3,6 +3,7 @@ package waffles.utils.lang.tokens.primitive;
 import waffles.utils.lang.tokens.Token;
 import waffles.utils.lang.tokens.format.Format;
 import waffles.utils.lang.tokens.parsers.choice.primitive.PrimitiveParser;
+import waffles.utils.tools.patterns.properties.values.Valuable;
 
 /**
  * A {@code PrimitiveToken} defines a {@code Token} for a primitive value.
@@ -13,9 +14,10 @@ import waffles.utils.lang.tokens.parsers.choice.primitive.PrimitiveParser;
  * @version 1.1
  * 
  * 
+ * @see Valuable
  * @see Token
  */
-public class PrimitiveToken implements Token
+public class PrimitiveToken implements Token, Valuable<Object>
 {
 	/**
 	 * A {@code PrimitiveToken.Parser} generates primitive tokens.
@@ -79,9 +81,8 @@ public class PrimitiveToken implements Token
 		value = val;
 	}
 	
-	
 	/**
-	 * Changes the value of the {@code PrimitiveToken}.
+	 * Changes the {@code PrimitiveToken}.
 	 * 
 	 * @param val  an object value
 	 */
@@ -90,19 +91,9 @@ public class PrimitiveToken implements Token
 		value = val;
 	}
 	
-	/**
-	 * Returns the value of the {@code PrimitiveToken}.
-	 * 
-	 * @return  an object value
-	 */
-	public <O> O Value()
-	{
-		return (O) value;
-	}
-
 
 	@Override
-	public Format<? extends PrimitiveToken> Formatter()
+	public Format<? extends Valuable<?>> Formatter()
 	{
 		return obj ->
 		{
@@ -126,5 +117,11 @@ public class PrimitiveToken implements Token
 		}
 
 		return false;
+	}
+	
+	@Override
+	public Object Value()
+	{
+		return value;
 	}
 }
