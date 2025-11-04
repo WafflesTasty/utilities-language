@@ -4,8 +4,6 @@ import waffles.utils.lang.tokens.format.Format;
 import waffles.utils.lang.tokens.format.values.StringFormat;
 import waffles.utils.lang.tokens.format.values.StringFormat.Hints;
 import waffles.utils.lang.tokens.parsers.choice.primitive.StringParser;
-import waffles.utils.tools.patterns.properties.Gateway;
-import waffles.utils.tools.patterns.properties.values.Valuable;
 
 /**
  * A {@code StringToken} extends the {@code LiteralToken} token with a general string.
@@ -117,45 +115,7 @@ public class StringToken extends LiteralToken
 		super(val);
 	}
 	
-	
-
-	
-	/**
-	 * Returns a formatter for the {@code StringToken}.
-	 * 
-	 * @param g  a string gateway
-	 * @param d  a string delimiter
-	 * @return   a string formatter
-	 * 
-	 * 
-	 * @see Valuable
-	 * @see Gateway
-	 * @see Format
-	 */
-	public Format<? extends Valuable<?>> Formatter(Gateway<String> g, char d)
-	{
-		return obj ->
-		{
-			Object val = obj.Value();
-			if(val == null)
-				return d + "" + d;
-			if(val instanceof Boolean
-			|| val instanceof Number)
-			{
-				return val.toString();
-			}
-			
-			String format = val.toString();
-			if(g.allows(format))
-			{
-				return d + format + d;
-			}
-			
-			return format;
-		};
-	}
-	
-	
+		
 	/**
 	 * Returns a {@code StringToken} formatter.
 	 * 
@@ -185,7 +145,6 @@ public class StringToken extends LiteralToken
 	{
 		return Formatter(() -> d);
 	}
-	
 	
 	@Override
 	public Format<?> Formatter()
