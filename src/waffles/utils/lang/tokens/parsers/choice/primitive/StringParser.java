@@ -1,7 +1,7 @@
 package waffles.utils.lang.tokens.parsers.choice.primitive;
 
 import waffles.utils.lang.tokens.parsers.basic.strings.DelimitParser;
-import waffles.utils.lang.tokens.primitive.StringToken;
+import waffles.utils.lang.tokens.values.primitive.StringToken;
 
 /**
  * A {@code StringTokenParser} extends literal parsing with a general

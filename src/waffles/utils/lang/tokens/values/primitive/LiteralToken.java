@@ -1,4 +1,4 @@
-package waffles.utils.lang.tokens.primitive;
+package waffles.utils.lang.tokens.values.primitive;
 
 import waffles.utils.lang.tokens.parsers.choice.primitive.LiteralParser;
 

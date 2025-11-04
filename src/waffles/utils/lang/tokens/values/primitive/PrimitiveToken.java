@@ -1,9 +1,7 @@
-package waffles.utils.lang.tokens.primitive;
+package waffles.utils.lang.tokens.values.primitive;
 
-import waffles.utils.lang.tokens.Token;
-import waffles.utils.lang.tokens.format.Format;
 import waffles.utils.lang.tokens.parsers.choice.primitive.PrimitiveParser;
-import waffles.utils.tools.patterns.properties.values.Valuable;
+import waffles.utils.lang.tokens.values.ValueToken;
 
 /**
  * A {@code PrimitiveToken} defines a {@code Token} for a primitive value.
@@ -14,10 +12,9 @@ import waffles.utils.tools.patterns.properties.values.Valuable;
  * @version 1.1
  * 
  * 
- * @see Valuable
- * @see Token
+ * @see ValueToken
  */
-public class PrimitiveToken implements Token, Valuable<Object>
+public class PrimitiveToken implements ValueToken<Object>
 {
 	/**
 	 * A {@code PrimitiveToken.Parser} generates primitive tokens.
@@ -92,21 +89,6 @@ public class PrimitiveToken implements Token, Valuable<Object>
 	}
 	
 
-	@Override
-	public Format<? extends Valuable<?>> Formatter()
-	{
-		return obj ->
-		{
-			Object val = obj.Value();
-			if(val != null)
-			{
-				return val.toString();
-			}
-			
-			return "";
-		};
-	}
-	
 	@Override
 	public boolean equals(Object o)
 	{

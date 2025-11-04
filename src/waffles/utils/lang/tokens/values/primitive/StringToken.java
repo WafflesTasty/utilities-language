@@ -1,7 +1,8 @@
-package waffles.utils.lang.tokens.primitive;
+package waffles.utils.lang.tokens.values.primitive;
 
-import waffles.utils.lang.Strings;
 import waffles.utils.lang.tokens.format.Format;
+import waffles.utils.lang.tokens.format.values.StringFormat;
+import waffles.utils.lang.tokens.format.values.StringFormat.Hints;
 import waffles.utils.lang.tokens.parsers.choice.primitive.StringParser;
 import waffles.utils.tools.patterns.properties.Gateway;
 import waffles.utils.tools.patterns.properties.values.Valuable;
@@ -117,20 +118,7 @@ public class StringToken extends LiteralToken
 	}
 	
 	
-	/**
-	 * Returns a formatter for the {@code StringToken}.
-	 * 
-	 * @param d  a string delimiter
-	 * @return   a string formatter
-	 * 
-	 * 
-	 * @see PrimitiveToken
-	 * @see Format
-	 */
-	public Format<? extends Valuable<?>> Formatter(char d)
-	{
-		return Formatter(s -> Strings.hasWhiteSpace(s), d);
-	}
+
 	
 	/**
 	 * Returns a formatter for the {@code StringToken}.
@@ -150,7 +138,7 @@ public class StringToken extends LiteralToken
 		{
 			Object val = obj.Value();
 			if(val == null)
-				return "";
+				return d + "" + d;
 			if(val instanceof Boolean
 			|| val instanceof Number)
 			{
@@ -168,9 +156,40 @@ public class StringToken extends LiteralToken
 	}
 	
 	
-	@Override
-	public Format<? extends Valuable<?>> Formatter()
+	/**
+	 * Returns a {@code StringToken} formatter.
+	 * 
+	 * @param h  format hints
+	 * @return   a formatter
+	 * 
+	 * 
+	 * @see Format
+	 * @see Hints
+	 */
+	public Format<?> Formatter(Hints h)
 	{
-		return Formatter(DELIMITER);
+		return new StringFormat<>(h);
+	}
+	
+	/**
+	 * Returns a {@code StringToken} formatter.
+	 * 
+	 * @param d  a string delimiter
+	 * @return   a formatter
+	 * 
+	 * 
+	 * @see PrimitiveToken
+	 * @see Format
+	 */
+	public Format<?> Formatter(char d)
+	{
+		return Formatter(() -> d);
+	}
+	
+	
+	@Override
+	public Format<?> Formatter()
+	{
+		return Formatter('"');
 	}
 }
