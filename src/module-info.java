@@ -34,6 +34,5 @@ module waffles.utils.lang
 	exports waffles.utils.lang.metric.iso.date;
 	exports waffles.utils.lang.utilities.iterators;
 
-	requires waffles.utils.sets;
-	requires waffles.utils.tools;
+	requires transitive waffles.utils.sets;
 }
