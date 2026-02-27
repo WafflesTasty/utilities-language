@@ -2,7 +2,7 @@
  * A definition of the module {@code Utilities: Language}.
  */
 module waffles.utils.lang
-{
+{	
 	exports waffles.utils.lang.utilities.patterns.moments;
 	exports waffles.utils.lang.tokens;
 	exports waffles.utils.lang.tokens.parsers.basic;
@@ -33,6 +33,6 @@ module waffles.utils.lang
 	exports waffles.utils.lang.utilities.patterns;
 	exports waffles.utils.lang.metric.iso.date;
 	exports waffles.utils.lang.utilities.iterators;
-
+	
 	requires transitive waffles.utils.sets;
 }
