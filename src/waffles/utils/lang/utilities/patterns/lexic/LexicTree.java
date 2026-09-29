@@ -2,7 +2,6 @@ package waffles.utils.lang.utilities.patterns.lexic;
 
 import waffles.utils.sets.arboreal.binary.search.BSTree;
 import waffles.utils.sets.arboreal.binary.search.IOTree;
-import waffles.utils.tools.collections.iterators.counters.IntegerCounter;
 
 /**
  * A {@code LexicTree} is a {@code BSTree} that stores strings in {@code LexicOrder}.
@@ -30,24 +29,18 @@ public class LexicTree extends BSTree<String>
 	public class Query implements IOTree.Query<String>, LexicOrder<String>
 	{
 		@Override
+		public int length(String s)
+		{
+			return s.length();
+		}
+		
+		@Override
 		public int compare(String s1, String s2, int ord)
 		{
 			char c1 = s1.charAt(ord);
 			char c2 = s2.charAt(ord);
 			
 			return c1 - c2;
-		}
-		
-		@Override
-		public Iterable<Integer> Order()
-		{
-			return () -> new IntegerCounter();
-		}
-		
-		@Override
-		public int length(String s)
-		{
-			return s.length();
 		}
 		
 		@Override

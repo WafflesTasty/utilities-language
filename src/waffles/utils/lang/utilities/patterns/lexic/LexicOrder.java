@@ -2,6 +2,8 @@ package waffles.utils.lang.utilities.patterns.lexic;
 
 import java.util.Comparator;
 
+import waffles.utils.tools.collections.iterators.counters.IntegerCounter;
+
 /**
  * A {@code LexicOrder} orders objects in a lexicographic manner.
  *
@@ -22,17 +24,7 @@ public interface LexicOrder<O> extends Comparator<O>
 	 * @return  a length
 	 */
 	public abstract int length(O obj);
-	
-	/**
-	 * Returns an order {@code Iterable}.
-	 * 
-	 * @return  an order iterable
-	 * 
-	 * 
-	 * @see Iterable
-	 */
-	public abstract Iterable<Integer> Order();
-	
+		
 	/**
 	 * Compares two objects at an ordered index.
 	 * 
@@ -42,6 +34,19 @@ public interface LexicOrder<O> extends Comparator<O>
 	 * @return  a comparison of o1 vs o2
 	 */
 	public abstract int compare(O o1, O o2, int ord);
+	
+	/**
+	 * Returns an order {@code Iterable}.
+	 * 
+	 * @return  an order iterable
+	 * 
+	 * 
+	 * @see Iterable
+	 */
+	public default Iterable<Integer> Order()
+	{
+		return () -> new IntegerCounter();
+	}
 	
 	
 	@Override
